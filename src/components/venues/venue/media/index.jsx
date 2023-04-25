@@ -1,21 +1,18 @@
 import React from 'react'
-import { Carousel, CarouselContent, ImageIcon } from './style'
+import ImageSlider from './imageSlider'
+import { ImageIcon, Wrapper } from './style'
 
 const Media = ({ media, name }) => {
   return (
-    <>
-      <Carousel>
-          {media.map((v, idx) => {
-              return <CarouselContent src={v} key={idx} alt={name}></CarouselContent>
-          })}
-      </Carousel>
+    <Wrapper>
+      <ImageSlider media={media} name={name}/>
       {media.length > 1 ?
         <ImageIcon>
             <img src='imagesicon.svg' alt='Icon'></img> 
             <p>{media.length}</p>
         </ImageIcon>
     : ""}
-    </>
+    </Wrapper>
   )
 }
 

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { color } from "../../../utils/constants";
 
 export const Wrapper = styled.div `
-    /* position: fixed; */
+    position: relative;
     width: 100%;
     z-index: 99;
 `
