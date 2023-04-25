@@ -1,0 +1,19 @@
+$main: #BB2649;
+$accent: #2F4858;
+$light: #FFFCF8;
+$dark: #252525;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'poppins', 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: $light;
+}
+
+img {
+    width: 100%;
+}
