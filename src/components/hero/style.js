@@ -7,7 +7,6 @@ export const Wrapper = styled.div `
     height: 80vh;
     z-index: 1;
     position: relative;
-    margin-bottom: 5rem;
 
     div {
         color: ${color.light};
@@ -15,7 +14,7 @@ export const Wrapper = styled.div `
         z-index: 3;
         max-width: 28rem;
         top: 50%;
-        left: 1rem;
+        left: .5rem;
         translate: 0 -50%;
 
         h1 {

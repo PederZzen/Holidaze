@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Hero from '../../components/hero'
 import Loader from '../../components/loader'
-import Venue from '../../components/venues/venue'
+import Venues from '../../components/venues'
 import useFetch from '../../hooks/useFetch'
 import { VENUES_URL } from '../../utils/constants'
 
@@ -26,14 +26,10 @@ const Home = () => {
     }
 
     return (
-        <div>
+        <>
             <Hero />
-            <div>
-                {venues ? venues.map((venue, idx) => {
-                    return <Venue key={idx} venue={venue}>{venue.name}</Venue>
-                }) : "No data.."}
-            </div>
-        </div>
+            <Venues venues={venues}/>
+        </>
     )
 }
 

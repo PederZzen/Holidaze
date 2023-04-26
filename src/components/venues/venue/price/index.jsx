@@ -1,8 +1,9 @@
 import React from 'react'
+import { Span, Wrapper } from './style'
 
 const Price = ({ price }) => {
   return (
-    <p>{price}NOK a night</p>
+    <Wrapper>{price}NOK <Span>a night</Span></Wrapper>
   )
 }
 

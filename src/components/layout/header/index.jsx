@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { Menu, Nav, Wrapper } from './style'
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false)
+  const location = useLocation()
 
   const menu = 
     <Menu>
@@ -19,11 +20,18 @@ const Header = () => {
     }
   }
 
+  useEffect(()=>{
+    setShowMenu(false)
+  }, [location])
+
+
   return (
     <Wrapper>
       <Nav>
           <div>
-            <img src='logo.svg' alt='holidaze logo'></img>
+            <Link to="/">
+              <img src='logo.svg' alt='holidaze logo'></img>
+            </Link>
           </div>
           <div onClick={toggleMenu}>
             <img src="menuIcon.svg" alt="menu icon" />

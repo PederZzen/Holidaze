@@ -6,12 +6,12 @@ const Media = ({ media, name }) => {
   return (
     <Wrapper>
       <ImageSlider media={media} name={name}/>
-      {media.length > 1 ?
+      {/* {media.length > 1 ?
         <ImageIcon>
             <img src='imagesicon.svg' alt='Icon'></img> 
             <p>{media.length}</p>
         </ImageIcon>
-    : ""}
+    : ""} */}
     </Wrapper>
   )
 }

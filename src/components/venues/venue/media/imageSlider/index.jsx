@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Carousel } from 'antd'
-import { SliderContent } from './style'
+import { Buttons, SliderContent, Wrapper } from './style'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 const ImageSlider = ({ media, name }) => {
+  const slider = useRef(null)
   return (
-    <>
-      <Carousel>
+    <Wrapper>
+      <Carousel ref={slider}>
         {media.map((v, idx) => {
             return (
               <div key={idx}>
@@ -14,7 +17,13 @@ const ImageSlider = ({ media, name }) => {
             )
           })}
       </Carousel>
-    </>
+      {media.length > 1 ? 
+          <Buttons>
+            <FontAwesomeIcon onClick={() => slider.current.prev()} icon={faChevronLeft} />
+            <FontAwesomeIcon onClick={() => slider.current.next()} icon={faChevronRight} />
+          </Buttons>
+      : ""}
+    </Wrapper>
     
   )
 }

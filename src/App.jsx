@@ -8,6 +8,7 @@ import Home from './pages/home'
 import Login from './pages/login'
 import Register from './pages/register'
 import Venue from './pages/venue'
+import RouteNotFound from './pages/404'
 
 const App = () => {
   return (
@@ -19,7 +20,8 @@ const App = () => {
         <Route path="success" element={<Success/>}/>
         <Route path="login" element={<Login/>}/>
         <Route path="register" element={<Register/>}/>
-        <Route path="venue" element={<Venue/>}/>
+        <Route path="venue/:id" element={<Venue/>}/>
+        <Route path="*" element={<RouteNotFound/>}/>
       </Routes>
     </Layout>
     </>
