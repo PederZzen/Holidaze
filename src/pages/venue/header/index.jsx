@@ -1,16 +1,13 @@
 import React from 'react'
-import MaxGuests from '../../../components/venues/venue/maxGuests'
-import Price from '../../../components/venues/venue/price'
+import Details from './details'
+import ImageSlider from './ImageSlider'
 import { Wrapper } from './style'
 
 const Header = ({ venue }) => {
   return (
     <Wrapper>
-        <div>
-            <h1>{venue.name}</h1>
-            <MaxGuests maxGuests={venue.maxGuests} />
-        </div>
-        <Price price={venue.price} />
+        <ImageSlider media={venue.media} name={venue.name} />
+        <Details name={venue.name} price={venue.price} maxGuests={venue.maxGuests} />
     </Wrapper>
   )
 }

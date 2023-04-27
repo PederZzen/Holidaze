@@ -1,8 +1,6 @@
 import React, { useRef } from 'react'
 import { Carousel } from 'antd'
-import { Buttons, SliderContent, Wrapper } from './style'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { SliderContent, Wrapper } from './style'
 
 const ImageSlider = ({ media, name }) => {
   const slider = useRef(null)
@@ -17,12 +15,6 @@ const ImageSlider = ({ media, name }) => {
             )
           })}
       </Carousel>
-      {media.length > 1 ? 
-          <Buttons>
-            <FontAwesomeIcon onClick={() => slider.current.prev()} icon={faChevronLeft} />
-            <FontAwesomeIcon onClick={() => slider.current.next()} icon={faChevronRight} />
-          </Buttons>
-      : ""}
     </Wrapper>
     
   )

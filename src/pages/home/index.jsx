@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import Hero from '../../components/hero'
 import Loader from '../../components/loader'
-import Venues from '../../components/venues'
+import Venue from './venue'
 import useFetch from '../../hooks/useFetch'
 import { VENUES_URL } from '../../utils/constants'
+import { Wrapper } from './style'
 
 const Home = () => {
     const { data, isLoading, isError } = useFetch(VENUES_URL)
@@ -28,7 +29,11 @@ const Home = () => {
     return (
         <>
             <Hero />
-            <Venues venues={venues}/>
+            <Wrapper>
+                {venues ? venues.map((venue, idx) => {
+                    return <Venue key={idx} venue={venue}>{venue.name}</Venue>
+                }) : "No data.."}
+            </Wrapper>
         </>
     )
 }

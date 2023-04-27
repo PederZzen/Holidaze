@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import MaxGuests from './maxGuests'
+import MaxGuests from '../../../components/data/maxGuests'
 import Media from './media'
-import Price from './price'
+import Price from '../../../components/data/price'
 import { Content, Wrapper } from './style'
 
 const Venue = ({ venue }) => {
