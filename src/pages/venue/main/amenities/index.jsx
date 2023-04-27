@@ -9,10 +9,12 @@ const Amenities = ({ meta }) => {
         {meta.wifi || meta.parking || meta.breakfast || meta.pets ? 
             <h2>We offer</h2> : ""
         }
-        {meta.wifi ? <MetaCard icon={Icons.wifiIcon} text="Internet" /> : ""}
-        {meta.parking ? <MetaCard icon={Icons.parkingIcon} text="Parking" /> : ""}
-        {meta.breakfast ? <MetaCard icon={Icons.breakfastIcon} text="Breakfast" /> : ""}
-        {meta.pets ? <MetaCard icon={Icons.petIcon} text="Pet friendly" /> : ""}
+        <div>
+            {meta.wifi ? <MetaCard icon={Icons.wifiIcon} text="Internet" /> : ""}
+            {meta.parking ? <MetaCard icon={Icons.parkingIcon} text="Parking" /> : ""}
+            {meta.breakfast ? <MetaCard icon={Icons.breakfastIcon} text="Breakfast" /> : ""}
+            {meta.pets ? <MetaCard icon={Icons.petIcon} text="Pet friendly" /> : ""}
+        </div>
     </Wrapper>
   )
 }

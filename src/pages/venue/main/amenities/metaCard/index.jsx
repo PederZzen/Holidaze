@@ -1,12 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import { Wrapper } from './style'
 
 const MetaCard = ({ icon, text }) => {
   return (
-    <div>
+    <Wrapper>
       <FontAwesomeIcon icon={icon} />
       <p>{text}</p>
-    </div>
+    </Wrapper>
   )
 }
 
