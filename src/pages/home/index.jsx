@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Hero from '../../components/hero'
+import Hero from './hero'
 import Loader from '../../components/loader'
 import Venue from './venue'
 import useFetch from '../../hooks/useFetch'

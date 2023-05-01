@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Image } from 'antd'
 import { Wrapper } from './style';
 
-const ImageSlider = ({ media, name }) => {
+const Media = ({ media, name }) => {
   const [visible, setVisible] = useState(false);
 
 
@@ -20,4 +20,4 @@ const ImageSlider = ({ media, name }) => {
   )
 }
 
-export default ImageSlider
+export default Media

@@ -1,12 +1,15 @@
+import { useLocation } from "react-router-dom"
 import Header from "./header"
 
 const Layout = ({children}) => {
-  return (
-    <>
-      <Header />
-      <main>{children}</main>
-    </>
-  )
+    const location = useLocation()
+
+    return (
+        <>
+            {location.pathname === "/register" || location.pathname === "/login" ? "" : <Header />}    
+            <main>{children}</main>
+        </>
+    )
 }
 
 export default Layout

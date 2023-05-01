@@ -1,10 +1,11 @@
 import React from 'react'
+import { Wrapper } from './style'
 
 const Description = ({ desc }) => {
   return (
-    <div>
+    <Wrapper>
       {desc}
-    </div>
+    </Wrapper>
   )
 }
 

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { color } from "../../../../utils/constants";
 
 export const Wrapper = styled.div `
-    padding: 2rem .5rem 1rem;
+    padding: 3rem .5rem;
     background-color: ${color.light};
     border-radius: 2rem;
     position: relative;

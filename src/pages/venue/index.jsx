@@ -1,14 +1,14 @@
 import { useParams } from 'react-router-dom'
 import Loader from '../../components/loader'
 import useFetch from '../../hooks/useFetch'
-import { VENUES_URL } from '../../utils/constants'
+import { OWNER_FLAG, VENUES_URL } from '../../utils/constants'
 import Header from './header'
 import Main from './main'
 
 const Venue = () => {
     const { id } = useParams()
-    const { data, isLoading, isError } = useFetch(VENUES_URL + id)
-    
+    const { data, isLoading, isError } = useFetch(VENUES_URL + id + OWNER_FLAG)
+
     if (!data) {
         return <p>No data...</p>
     }
@@ -20,7 +20,6 @@ const Venue = () => {
     if (isError) {
         return <p>An error has occured</p>
     }
-
 
     return (
         <>

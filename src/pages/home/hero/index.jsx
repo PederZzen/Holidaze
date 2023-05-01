@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import Button from '../button'
+import Button from '../../../components/button'
 import { Wrapper } from './style'
 
 const Hero = () => {
