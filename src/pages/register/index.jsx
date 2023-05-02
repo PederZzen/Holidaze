@@ -31,9 +31,9 @@ const Register = () => {
           body: JSON.stringify(userData),
         }
         const response = await fetch(url, postData)
-        console.log(response);
-        const data = await response.json()
-        console.log(data);
+        const json = await response.json()
+        localStorage.setItem("token" , json.accessToken)
+        localStorage.setItem("name" , json.name)
       } 
       catch (error) {
         console.error(error);

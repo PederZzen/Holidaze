@@ -1,9 +1,10 @@
-import { faCoffee, faParking, faPaw, faWifi } from "@fortawesome/free-solid-svg-icons"
+import { faCoffee, faGear, faParking, faPaw, faWifi } from "@fortawesome/free-solid-svg-icons"
 
 export const BASE_URL = "https://api.noroff.dev/api/v1/holidaze"
 export const VENUES_URL = BASE_URL + "/venues/"
 export const REGISTER_URL = BASE_URL + "/auth/register"
 export const LOGIN_URL = BASE_URL + "/auth/login"
+export const PROFILE_URL = BASE_URL + "/profiles/"
 export const OWNER_FLAG = "?_owner=true"
 
 export const color = {
@@ -18,5 +19,6 @@ export const Icons = {
     parkingIcon: faParking,
     petIcon: faPaw,
     breakfastIcon: faCoffee,
+    settingsIcon: faGear
 }
 

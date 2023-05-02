@@ -9,6 +9,7 @@ import Login from './pages/login'
 import Register from './pages/register'
 import Venue from './pages/venue'
 import RouteNotFound from './pages/404'
+import Profile from './pages/profile'
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="success" element={<Success/>}/>
         <Route path="login" element={<Login/>}/>
         <Route path="register" element={<Register/>}/>
+        <Route path="profile/:user" element={<Profile/>}/>
         <Route path="venue/:id" element={<Venue/>}/>
         <Route path="*" element={<RouteNotFound/>}/>
       </Routes>

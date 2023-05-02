@@ -31,7 +31,6 @@ const Login = () => {
         const json = await response.json()
         localStorage.setItem("token" , json.accessToken)
         localStorage.setItem("name" , json.name)
-        localStorage.setItem("loggedIn", true)
       } 
       catch (error) {
         console.error(error);

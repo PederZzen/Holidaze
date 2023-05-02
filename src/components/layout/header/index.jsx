@@ -1,24 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, Nav, Wrapper } from './style'
+import Menu from './menu'
+import { Nav, Wrapper } from './style'
 
 const Header = () => {
-  const [showMenu, setShowMenu] = useState(false)
-  const location = useLocation()
+    const [showMenu, setShowMenu] = useState(false)
+    const location = useLocation()
 
-  const menu = 
-    <Menu>
-      <Link to="/register">Register</Link>
-      <Link to="/login">Login</Link>
-      <Link to="/createvenue">Create Venue</Link>
-    </Menu>    
-
-    // <Menu>
-    //   <Link to="/profile">Profile</Link>
-    //   <Link to="/">Log out</Link>
-    //   <Link to="/createvenue">Create Venue</Link>
-    // </Menu>    
-    
     const toggleMenu = () => {
       setShowMenu(true)
       if (showMenu) {
@@ -43,7 +31,7 @@ const Header = () => {
               <img src="menuIcon.svg" alt="menu icon" />
             </div>
         </Nav>
-        {showMenu ? menu : ""}
+        {showMenu ? <Menu /> : ""}
       </Wrapper>
     )
 }
