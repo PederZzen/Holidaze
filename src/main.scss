@@ -26,3 +26,22 @@ p,
 a {
     color: $dark;
 }
+
+.ant-btn-primary {
+    background-color: $accent;
+
+    &:hover {
+        background-color: $accent !important; 
+        filter: brightness(120%);
+    }
+}
+
+.ant-btn-default {
+    background-color: $light;
+    color: $accent;
+    
+    &:hover {
+        border-color: $accent !important; 
+        color: $accent !important;
+    }
+}

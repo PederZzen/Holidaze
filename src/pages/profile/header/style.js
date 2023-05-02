@@ -18,6 +18,9 @@ export const Wrapper = styled.div `
         width: 60%;
         max-width: 15rem;
         box-shadow: 0 0 1.5rem 0rem black;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        height: 100%;
     }
 
     h1 {
@@ -58,6 +61,7 @@ export const Wrapper = styled.div `
         right: .5rem;
         font-size: 1.5rem;
         color: ${color.light};
+        cursor: pointer;
     }
 
 
