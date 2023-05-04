@@ -1,6 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
-import { Icons } from '../../../utils/constants'
 import ChangeAvatar from './changeAvatar'
 import { Wrapper } from './style'
 

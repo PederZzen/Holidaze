@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import Hero from './hero'
 import Loader from '../../components/loader'
 import Venue from './venue'
-import useFetch from '../../hooks/useFetch'
 import { VENUES_URL } from '../../utils/constants'
 import { Wrapper } from './style'
+import useFetch from '../../hooks/useFetch'
 
 const Home = () => {
     const { data, isLoading, isError } = useFetch(VENUES_URL)

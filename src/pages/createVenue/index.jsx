@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Button from '../../components/button'
 import { StyledForm } from '../../styles/formStyle'
+import { VENUES_URL } from '../../utils/constants'
 import { schema } from './schema'
 import { Wrapper } from './style'
 
@@ -12,6 +13,7 @@ const CreateVenue = () => {
   const [parking, setParking] = useState(false)
   const [breakfast, setBreakfast] = useState(false)
   const [pets, setPets] = useState(false)
+  const token = localStorage.getItem("token")
 
   const meta = {
     "wifi": wifi,
@@ -43,8 +45,29 @@ const CreateVenue = () => {
       media.push(data.media)
     }
     const venueData = new Data(data.name, data.description, media, data.price, data.maxGuests, meta)
-    console.log(venueData);
+
+    postVenue(VENUES_URL, venueData)
   }
+
+    const postVenue = async (url, data) => {
+      try {
+        const postData = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+          body: JSON.stringify(data),
+        } 
+        const response = await fetch(url, postData)
+        console.log(response);
+        const json = await response.json()
+        console.log(json);
+      }
+      catch (error) {
+        console.error(error);
+      }
+    }
 
   const handleWifi = (change) => {
     setWifi(change)
@@ -58,6 +81,7 @@ const CreateVenue = () => {
   const handlePets = (change) => {
     setPets(change)
   }
+
 
   return (
     <Wrapper>
@@ -113,7 +137,7 @@ const CreateVenue = () => {
             </section>
             
 
-            <Button content='Register' />
+            <Button content='Create venue' />
         </StyledForm>
     </Wrapper>
   )

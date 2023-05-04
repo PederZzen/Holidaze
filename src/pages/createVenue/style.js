@@ -42,6 +42,7 @@ export const Wrapper = styled.div `
                 left: .5rem;
                 top: .5rem;
                 color: gray;
+                padding: 0 .2rem;
             }
         } 
 
