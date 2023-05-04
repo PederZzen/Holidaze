@@ -13,7 +13,7 @@ const Header = ({ profile }) => {
             </div>
             <h1>{profile.name}</h1>
             <h2>{profile.email}</h2>
-            <p>Guest{profile.venueManager ? " and owner" : ""}</p>
+            <h3>Guest{profile.venueManager ? " and owner" : ""}</h3>
             <ChangeAvatar name={profile.name}/>
         </Wrapper>
     )

@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { color } from "../../../utils/constants";
 
 export const Wrapper = styled.div `
-    background-color: ${color.accent};
     text-align: center;
     position: relative;
     padding: 1.5rem 0 5rem;
@@ -49,7 +48,7 @@ export const Wrapper = styled.div `
         }
 
     }
-    p {
+    h3 {
         margin-top: 1rem;
         opacity: .5;
         font-weight: 500;

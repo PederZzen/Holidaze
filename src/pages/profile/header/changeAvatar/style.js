@@ -3,6 +3,7 @@ import { color } from "../../../../utils/constants";
 
 export const SettingsDropdown = styled.div `
     background-color: ${color.light};
+    z-index: 2;
     position: absolute;
     right: 1rem;
     bottom: -5rem;
@@ -16,6 +17,7 @@ export const SettingsDropdown = styled.div `
         opacity: 1;
         font-weight: 400;
         transition: all .3s;
+        margin-top: 1rem;
 
         &:hover {
             filter: brightness(150%);

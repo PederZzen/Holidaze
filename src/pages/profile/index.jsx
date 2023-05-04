@@ -3,8 +3,10 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 import Loader from '../../components/loader'
-import { PROFILE_URL } from '../../utils/constants'
+import { BOOKINGS_FLAG, PROFILE_URL, VENUE_FLAG } from '../../utils/constants'
 import Header from './header'
+import Main from './main'
+import { Wrapper } from './style'
 
 const Profile = () => {
   const { user } = useParams()
@@ -31,7 +33,7 @@ const Profile = () => {
         console.error(error);
       }
     }
-    fetchUser(PROFILE_URL + user)
+    fetchUser(`${PROFILE_URL}${user}?${VENUE_FLAG}&${BOOKINGS_FLAG}`)
 
   }, [location])
 
@@ -40,9 +42,10 @@ const Profile = () => {
   }
 
   return (
-    <div>
+    <Wrapper>
       <Header profile={profile} />
-    </div>
+      <Main profile={profile} />
+    </Wrapper>
   )
 }
 
