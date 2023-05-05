@@ -1,8 +1,11 @@
-const Venues = () => {
+import Venue from "../../../../components/venue";
+
+const Venues = ({ venues }) => {
+
   return (
-    <div>
-      Hi
-    </div>
+    venues.map((venue, idx) => {
+      return <Venue key={idx} venue={venue} />
+    })
   )
 }
 

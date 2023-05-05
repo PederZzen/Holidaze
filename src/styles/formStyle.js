@@ -5,7 +5,7 @@ export const StyledForm = styled.form `
     display: flex;
     flex-direction: column;
     width: 90%;
-    align-items: center;
+    max-width: 25rem;
     margin: 2rem 0;
 
     > div {
@@ -30,6 +30,13 @@ export const StyledForm = styled.form `
 
     input[type=number] {
         width: 50%;
+        -moz-appearance: textfield;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+        margin: 0;
     }
 
     span {
@@ -37,6 +44,10 @@ export const StyledForm = styled.form `
         filter: brightness(150%);
         padding: .2rem;
         text-align: left;
+    }
+
+    button {
+        margin: 0 auto;
     }
 
 `

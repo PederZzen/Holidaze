@@ -14,6 +14,8 @@ const CreateVenue = () => {
   const [breakfast, setBreakfast] = useState(false)
   const [pets, setPets] = useState(false)
   const token = localStorage.getItem("token")
+  const [inputFields, setInputFields] = useState([])
+  const [mediaInput, setMediaInput] = useState([])
 
   const meta = {
     "wifi": wifi,
@@ -45,8 +47,9 @@ const CreateVenue = () => {
       media.push(data.media)
     }
     const venueData = new Data(data.name, data.description, media, data.price, data.maxGuests, meta)
+    console.log(venueData);
 
-    postVenue(VENUES_URL, venueData)
+    // postVenue(VENUES_URL, venueData)
   }
 
     const postVenue = async (url, data) => {
@@ -82,6 +85,10 @@ const CreateVenue = () => {
     setPets(change)
   }
 
+  const add = () => {
+    setInputFields([...inputFields, ''])
+  }
+
 
   return (
     <Wrapper>
@@ -112,8 +119,12 @@ const CreateVenue = () => {
             </div>
 
             <div>
-              <input type="text" min="0" placeholder=' ' id='media' {...register('media')}/>
+              <input type="text" placeholder=' ' id='media' {...register('media')}/>
+              {inputFields.map((field, idx) => {
+                  return <input key={idx} type="text" id={idx}/>
+              })}
               <label htmlFor='media'>Media</label>
+              <p onClick={add}>Add more</p>
               <span>{errors.media?.message}&nbsp;</span>
             </div>
 

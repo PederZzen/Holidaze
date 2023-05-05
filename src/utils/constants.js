@@ -7,7 +7,10 @@ export const LOGIN_URL = BASE_URL + "/auth/login"
 export const PROFILE_URL = BASE_URL + "/profiles/"
 export const OWNER_FLAG = "?_owner=true"
 export const BOOKINGS_FLAG = "_bookings=true"
-export const VENUE_FLAG = "_venue=true"
+export const VENUE_FLAG = "_venues=true"
+
+export const SORT_DESC = "?sort=created&sortOrder=desc"
+export const SORT_ASC = "?sort=created&sortOrder=asc"
 
 export const color = {
     main: "#BB2649",

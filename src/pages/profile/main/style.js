@@ -24,6 +24,10 @@ export const Wrapper = styled.div `
         background-color: ${color.accent};
     }
 
+    a:hover {
+        color: ${color.accent};
+    }
+
 `
 export const StyledTabs = styled(Tabs) `
 

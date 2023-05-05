@@ -16,7 +16,7 @@ const Profile = () => {
   useEffect(()=>{
     getData(`${PROFILE_URL}${user}?${VENUE_FLAG}&${BOOKINGS_FLAG}`)
   }, [location])
-
+  
   if (!response) {
     return <Loader />
   }
