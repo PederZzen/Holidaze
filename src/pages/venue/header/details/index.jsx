@@ -1,4 +1,4 @@
-import React from 'react'
+import { Input, Modal } from 'antd'
 import { useState } from 'react'
 import MaxGuests from '../../../../components/data/maxGuests'
 import Price from '../../../../components/data/price'
@@ -8,10 +8,21 @@ import { Wrapper, EditPost, SettingsIcon, GuestsAndPrice } from './style'
 const Details = ({ name, price, maxGuests, owner }) => {
   const [settings, showSettings] = useState(false)  
   const user = localStorage.getItem("name")
+  const [isModalOpen, setIsModalOpen] = useState(false);
   
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
   const settingsDropdown = 
     <EditPost>
-      <p>Edit post</p>
+      <p onClick={showModal}>Edit post</p>
       <p>Delete post</p>
     </EditPost>
   
@@ -21,6 +32,8 @@ const Details = ({ name, price, maxGuests, owner }) => {
       showSettings(false)
     }
   }
+
+
   return (
     <Wrapper>
         <h1>{name}</h1>
@@ -30,6 +43,9 @@ const Details = ({ name, price, maxGuests, owner }) => {
         </GuestsAndPrice>
         {owner === user ? <SettingsIcon icon={Icons.settingsIcon} onClick={toggleSettings}/> : ""}
         {settings ? settingsDropdown : ""}
+        <Modal title="Edit post" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+        
+        </Modal>
     </Wrapper>
   )
 }

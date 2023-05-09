@@ -1,7 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Modal } from 'antd';
-import React from 'react'
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import usePostPut from '../../../../hooks/usePostPut';

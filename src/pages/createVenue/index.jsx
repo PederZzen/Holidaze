@@ -1,5 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Switch } from 'antd'
+import React from 'react'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Button from '../../components/button'
@@ -9,149 +10,165 @@ import { schema } from './schema'
 import { Wrapper } from './style'
 
 const CreateVenue = () => {
-  const [wifi, setWifi] = useState(false)
-  const [parking, setParking] = useState(false)
-  const [breakfast, setBreakfast] = useState(false)
-  const [pets, setPets] = useState(false)
-  const token = localStorage.getItem("token")
-  const [inputFields, setInputFields] = useState([])
-  const [mediaInput, setMediaInput] = useState([])
+    const [wifi, setWifi] = useState(false)
+    const [parking, setParking] = useState(false)
+    const [breakfast, setBreakfast] = useState(false)
+    const [pets, setPets] = useState(false)
+    const token = localStorage.getItem('token')
+    const [inputFields, setInputFields] = useState([{ value: '' }])
 
-  const meta = {
-    "wifi": wifi,
-    "parking": parking,
-    "breakfast": breakfast,
-    "pets": pets,
-  }
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm({
+        resolver: yupResolver(schema),
+    })
 
-  function Data (name, description, media, price, maxGuests, meta) {
-    this.name = name;
-    this.description = description;
-    this.media = media;
-    this.price = price;
-    this.maxGuests = maxGuests;
-    this.meta = meta;
-  }
+    const onSubmit = (data) => {
+        const media = []
+        if (data.media) {
+            media.push(data.media)
+        }
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors }
-  } = useForm({
-    resolver: yupResolver(schema),
-  })
+        console.log(data)
 
-  const onSubmit = (data) => {
-    const media = []
-    if (data.media) {
-      media.push(data.media)
+        // postVenue(VENUES_URL, venueData)
     }
-    const venueData = new Data(data.name, data.description, media, data.price, data.maxGuests, meta)
-    console.log(venueData);
-
-    // postVenue(VENUES_URL, venueData)
-  }
 
     const postVenue = async (url, data) => {
-      try {
-        const postData = {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-        },
-          body: JSON.stringify(data),
-        } 
-        const response = await fetch(url, postData)
-        console.log(response);
-        const json = await response.json()
-        console.log(json);
-      }
-      catch (error) {
-        console.error(error);
-      }
+        try {
+            const postData = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`,
+                },
+                body: JSON.stringify(data),
+            }
+            const response = await fetch(url, postData)
+            console.log(response)
+            const json = await response.json()
+            console.log(json)
+        } catch (error) {
+            console.error(error)
+        }
     }
 
-  const handleWifi = (change) => {
-    setWifi(change)
-  }
-  const handleParking = (change) => {
-    setParking(change)
-  }
-  const handleBreakfast = (change) => {
-    setBreakfast(change)
-  }
-  const handlePets = (change) => {
-    setPets(change)
-  }
+    const handleWifi = (change) => {
+        setWifi(change)
+    }
+    const handleParking = (change) => {
+        setParking(change)
+    }
+    const handleBreakfast = (change) => {
+        setBreakfast(change)
+    }
+    const handlePets = (change) => {
+        setPets(change)
+    }
 
-  const add = () => {
-    setInputFields([...inputFields, ''])
-  }
+    const add = () => {
+        setInputFields([...inputFields, { value: '' }])
+    }
 
+    return (
+        <Wrapper>
+            <h1>Rent out your home</h1>
+            <StyledForm onSubmit={handleSubmit(onSubmit)}>
+                <div>
+                    <input
+                        type="name"
+                        placeholder=""
+                        id="name"
+                        {...register('name')}
+                    />
+                    <label htmlFor="name">*Name of venue</label>
+                    <span>{errors.name?.message}&nbsp;</span>
+                </div>
 
-  return (
-    <Wrapper>
-      <h1>Rent out your home</h1>
-      <StyledForm onSubmit={handleSubmit(onSubmit)}>
-            <div>
-              <input type='name' placeholder='' id='name' {...register('name')}/>
-              <label htmlFor='name'>*Name of venue</label>
-              <span>{errors.name?.message}&nbsp;</span>
-            </div>
+                <div>
+                    <textarea
+                        placeholder=" "
+                        id="desc"
+                        {...register('description')}
+                    />
+                    <label htmlFor="desc">*Description</label>
+                    <span>{errors.description?.message}&nbsp;</span>
+                </div>
 
-            <div>
-              <textarea placeholder=' ' id='desc' {...register('description')}/>
-              <label htmlFor='desc'>*Description</label>
-              <span>{errors.description?.message}&nbsp;</span>
-            </div>
+                <div>
+                    <input
+                        type="number"
+                        min="0"
+                        placeholder=" "
+                        id="price"
+                        {...register('price')}
+                    />
+                    <label htmlFor="price">*Price</label>
+                    <span>{errors.price?.message}&nbsp;</span>
+                </div>
 
-            <div>
-              <input type="number" min="0" placeholder=' ' id='price' {...register('price')}/>
-              <label htmlFor='price'>*Price</label>
-              <span>{errors.price?.message}&nbsp;</span>
-            </div>
+                <div>
+                    <input
+                        type="number"
+                        min="0"
+                        placeholder=" "
+                        id="maxGuests"
+                        {...register('maxGuests')}
+                    />
+                    <label htmlFor="maxGuests">*Max guests</label>
+                    <span>{errors.maxGuests?.message}&nbsp;</span>
+                </div>
 
-            <div>
-              <input type="number" min="0" placeholder=' ' id='maxGuests' {...register('maxGuests')}/>
-              <label htmlFor='maxGuests'>*Max guests</label>
-              <span>{errors.maxGuests?.message}&nbsp;</span>
-            </div>
+                <div>
+                    {inputFields.map((field, idx) => {
+                        return (
+                            <input
+                                type="text"
+                                key={idx}
+                                placeholder=" "
+                                id={`media-${idx}`}
+                                {...register(`media[${idx}]`)}
+                            />
+                        )
+                    })}
+                    <label htmlFor="media-0">Media</label>
+                    <p onClick={add}>Add more</p>
+                    <span>{errors.media?.message}&nbsp;</span>
+                </div>
 
-            <div>
-              <input type="text" placeholder=' ' id='media' {...register('media')}/>
-              {inputFields.map((field, idx) => {
-                  return <input key={idx} type="text" id={idx}/>
-              })}
-              <label htmlFor='media'>Media</label>
-              <p onClick={add}>Add more</p>
-              <span>{errors.media?.message}&nbsp;</span>
-            </div>
+                <section>
+                    <div>
+                        <Switch
+                            onChange={handleWifi}
+                            {...register('meta.wifi')}
+                            id="wifi"
+                        />
+                        <label htmlFor="wifi">Wifi</label>
+                    </div>
+                    <div>
+                        <Switch
+                            onChange={handleParking}
+                            id="parking"
+                            // {...register('meta.parking')}
+                        />
+                        <label htmlFor="parking">Parking available</label>
+                    </div>
+                    <div>
+                        <Switch onChange={handleBreakfast} id="breakfast" />
+                        <label htmlFor="breakfast">Breakfast included</label>
+                    </div>
+                    <div>
+                        <Switch onChange={handlePets} id="pets" />
+                        <label htmlFor="pets">Pet friendly</label>
+                    </div>
+                </section>
 
-            <section>
-              <div>
-                <Switch onChange={handleWifi} id='wifi'/>
-                <label htmlFor='wifi'>Wifi</label>
-              </div>
-              <div>
-                <Switch onChange={handleParking} id='parking'/>
-                <label htmlFor='parking'>Parking available</label>
-              </div>
-              <div>
-                <Switch onChange={handleBreakfast} id='breakfast'/>
-                <label htmlFor='breakfast'>Breakfast included</label>
-              </div>
-              <div>
-                <Switch onChange={handlePets} id='pets'/>
-                <label htmlFor='pets'>Pet friendly</label>
-              </div>
-            </section>
-            
-
-            <Button content='Create venue' />
-        </StyledForm>
-    </Wrapper>
-  )
+                <Button content="Create venue" />
+            </StyledForm>
+        </Wrapper>
+    )
 }
 
 export default CreateVenue

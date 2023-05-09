@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { color } from "../../utils/constants";
+import styled from 'styled-components'
+import { color } from '../../utils/constants'
 
-export const Wrapper = styled.div `
+export const Wrapper = styled.div`
     margin: 2rem auto;
     display: flex;
     flex-direction: column;
@@ -14,10 +14,10 @@ export const Wrapper = styled.div `
     }
 
     form {
-       > div {
+        > div {
             width: 100%;
             position: relative;
-            
+
             input,
             textarea {
                 border: 1px solid ${color.accent};
@@ -25,12 +25,12 @@ export const Wrapper = styled.div `
                 background-color: transparent;
             }
 
-            &:focus-within > label,
+            &:focus-within label,
             input:not(:placeholder-shown) + label,
             textarea:not(:placeholder-shown) + label {
-                top: -.5rem;
+                top: -0.5rem;
                 left: 1rem;
-                font-size: .7rem;
+                font-size: 0.7rem;
                 color: ${color.accent};
                 font-weight: 500;
             }
@@ -38,13 +38,18 @@ export const Wrapper = styled.div `
             label {
                 position: absolute;
                 background-color: ${color.light};
-                transition: all .3s;
-                left: .5rem;
-                top: .5rem;
+                transition: all 0.3s;
+                left: 0.5rem;
+                top: 0.5rem;
                 color: gray;
-                padding: 0 .2rem;
+                padding: 0 0.2rem;
+                cursor: auto;
             }
-        } 
+
+            p {
+                cursor: pointer;
+            }
+        }
 
         section {
             align-self: flex-start;
@@ -59,7 +64,7 @@ export const Wrapper = styled.div `
 
             div {
                 display: flex;
-                gap: .5rem;
+                gap: 0.5rem;
             }
         }
     }

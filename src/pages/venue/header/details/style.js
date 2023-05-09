@@ -26,6 +26,11 @@ export const EditPost = styled.div `
     padding: .5rem;
     text-align: right;
     border-radius: .5rem;
+
+    * {
+        margin: .4rem;
+        cursor: pointer;
+    }
 `
 
 export const SettingsIcon = styled(FontAwesomeIcon) `
