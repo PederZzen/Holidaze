@@ -1,21 +1,17 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import { Switch } from 'antd'
 import React from 'react'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Button from '../../components/button'
+import usePostPut from '../../hooks/usePostPut'
 import { StyledForm } from '../../styles/formStyle'
 import { VENUES_URL } from '../../utils/constants'
 import { schema } from './schema'
 import { Wrapper } from './style'
 
 const CreateVenue = () => {
-    const [wifi, setWifi] = useState(false)
-    const [parking, setParking] = useState(false)
-    const [breakfast, setBreakfast] = useState(false)
-    const [pets, setPets] = useState(false)
-    const token = localStorage.getItem('token')
-    const [inputFields, setInputFields] = useState([{ value: '' }])
+    const [inputFields, setInputFields] = useState([''])
+    const [fetchData, response, error] = usePostPut()
 
     const {
         register,
@@ -26,50 +22,12 @@ const CreateVenue = () => {
     })
 
     const onSubmit = (data) => {
-        const media = []
-        if (data.media) {
-            media.push(data.media)
-        }
-
-        console.log(data)
-
-        // postVenue(VENUES_URL, venueData)
-    }
-
-    const postVenue = async (url, data) => {
-        try {
-            const postData = {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${token}`,
-                },
-                body: JSON.stringify(data),
-            }
-            const response = await fetch(url, postData)
-            console.log(response)
-            const json = await response.json()
-            console.log(json)
-        } catch (error) {
-            console.error(error)
-        }
-    }
-
-    const handleWifi = (change) => {
-        setWifi(change)
-    }
-    const handleParking = (change) => {
-        setParking(change)
-    }
-    const handleBreakfast = (change) => {
-        setBreakfast(change)
-    }
-    const handlePets = (change) => {
-        setPets(change)
+        fetchData(VENUES_URL, data, 'POST')
+        console.log(response)
     }
 
     const add = () => {
-        setInputFields([...inputFields, { value: '' }])
+        setInputFields([...inputFields, ''])
     }
 
     return (
@@ -130,6 +88,7 @@ const CreateVenue = () => {
                                 placeholder=" "
                                 id={`media-${idx}`}
                                 {...register(`media[${idx}]`)}
+                                style={{ marginBottom: '1rem' }}
                             />
                         )
                     })}
@@ -140,27 +99,35 @@ const CreateVenue = () => {
 
                 <section>
                     <div>
-                        <Switch
-                            onChange={handleWifi}
+                        <input
+                            type="checkbox"
                             {...register('meta.wifi')}
                             id="wifi"
                         />
                         <label htmlFor="wifi">Wifi</label>
                     </div>
                     <div>
-                        <Switch
-                            onChange={handleParking}
+                        <input
+                            type="checkbox"
                             id="parking"
-                            // {...register('meta.parking')}
+                            {...register('meta.parking')}
                         />
                         <label htmlFor="parking">Parking available</label>
                     </div>
                     <div>
-                        <Switch onChange={handleBreakfast} id="breakfast" />
+                        <input
+                            type="checkbox"
+                            {...register('meta.breakfast')}
+                            id="breakfast"
+                        />
                         <label htmlFor="breakfast">Breakfast included</label>
                     </div>
                     <div>
-                        <Switch onChange={handlePets} id="pets" />
+                        <input
+                            type="checkbox"
+                            {...register('meta.pets')}
+                            id="pets"
+                        />
                         <label htmlFor="pets">Pet friendly</label>
                     </div>
                 </section>

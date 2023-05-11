@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { color } from "../utils/constants";
+import styled from 'styled-components'
+import { color } from '../utils/constants'
 
-export const StyledForm = styled.form `
+export const StyledForm = styled.form`
     display: flex;
     flex-direction: column;
     width: 90%;
@@ -18,7 +18,7 @@ export const StyledForm = styled.form `
         background-color: ${color.light};
         border: none;
         border-radius: 1.2rem;
-        padding: .8rem .5rem;
+        padding: 0.8rem 0.5rem;
         max-width: 25rem;
         outline: none;
     }
@@ -28,7 +28,7 @@ export const StyledForm = styled.form `
         height: 15rem;
     }
 
-    input[type=number] {
+    input[type='number'] {
         width: 50%;
         -moz-appearance: textfield;
     }
@@ -42,12 +42,11 @@ export const StyledForm = styled.form `
     span {
         color: ${color.main};
         filter: brightness(150%);
-        padding: .2rem;
+        padding: 0.2rem;
         text-align: left;
     }
 
     button {
         margin: 0 auto;
     }
-
 `

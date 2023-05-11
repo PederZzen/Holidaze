@@ -8,29 +8,29 @@ import Main from './main'
 import { Wrapper } from './style'
 
 const Profile = () => {
-  const { user } = useParams()
-  const location = useLocation()
+    const { user } = useParams()
+    const location = useLocation()
 
-  const [ getData, response, error ] = useFetchAuth()
+    const [getData, response, error] = useFetchAuth()
 
-  useEffect(()=>{
-    getData(`${PROFILE_URL}${user}?${VENUE_FLAG}&${BOOKINGS_FLAG}`)
-  }, [location])
-  
-  if (!response) {
-    return <Loader />
-  }
+    useEffect(() => {
+        getData(`${PROFILE_URL}${user}?${VENUE_FLAG}&${BOOKINGS_FLAG}`)
+    }, [location])
 
-  if (error) {
-    return <p>An error has occured..</p>
-  }
+    if (!response) {
+        return <Loader />
+    }
 
-  return (
-    <Wrapper>
-      <Header profile={response} />
-      <Main profile={response} />
-    </Wrapper>
-  )
+    if (error) {
+        return <p>An error has occured..</p>
+    }
+
+    return (
+        <Wrapper>
+            <Header profile={response} />
+            <Main profile={response} />
+        </Wrapper>
+    )
 }
 
 export default Profile

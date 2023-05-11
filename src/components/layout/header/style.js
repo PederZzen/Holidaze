@@ -1,18 +1,20 @@
-import styled from "styled-components";
-import { color } from "../../../utils/constants";
+import styled from 'styled-components'
+import { color } from '../../../utils/constants'
 
-export const Wrapper = styled.div `
+export const Wrapper = styled.div`
     position: relative;
     width: 100%;
     z-index: 99;
+    background-color: ${color.accent};
 `
 
 export const Nav = styled.nav`
-    background-color: ${color.accent};
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem .5rem;
+    padding: 1rem 0.5rem;
+    max-width: 1200px;
+    margin: auto;
 
     img,
     svg {

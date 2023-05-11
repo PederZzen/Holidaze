@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
             width: 100%;
             position: relative;
 
-            input,
+            input:not([type='checkbox']),
             textarea {
                 border: 1px solid ${color.accent};
                 width: 100%;
@@ -65,6 +65,26 @@ export const Wrapper = styled.div`
             div {
                 display: flex;
                 gap: 0.5rem;
+                align-items: center;
+
+                input {
+                    appearance: none;
+                    position: relative;
+
+                    &::before {
+                        content: '';
+                        display: inline-block;
+                        width: 16px;
+                        height: 16px;
+                        border: 1px solid ${color.accent};
+                        border-radius: 4px;
+                        transition: 0.3s;
+                    }
+
+                    :checked::before {
+                        background-color: ${color.accent};
+                    }
+                }
             }
         }
     }

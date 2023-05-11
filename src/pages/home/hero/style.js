@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import { color } from "../../../utils/constants";
+import styled from 'styled-components'
+import { color } from '../../../utils/constants'
 
-export const Wrapper = styled.div `
-    background: url("home-background.png") no-repeat right;
+export const Wrapper = styled.div`
+    background: url('home-background.png') no-repeat right;
     background-size: cover;
     height: 80vh;
     z-index: 1;
@@ -12,14 +12,16 @@ export const Wrapper = styled.div `
         color: ${color.light};
         position: relative;
         z-index: 3;
-        max-width: 28rem;
+        max-width: 1200px;
+        margin: auto;
         top: 50%;
-        left: .5rem;
+        left: 0.5rem;
         translate: 0 -50%;
 
         h1 {
             font-size: 3rem;
             line-height: 3.5rem;
+            max-width: 30rem;
         }
 
         h2 {
@@ -38,7 +40,7 @@ export const Wrapper = styled.div `
         width: 100%;
         height: 100%;
         background-color: ${color.accent};
-        opacity: .7;
+        opacity: 0.7;
         z-index: 2;
         position: absolute;
         top: 0;
