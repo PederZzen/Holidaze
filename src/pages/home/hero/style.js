@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
     height: 80vh;
     z-index: 1;
     position: relative;
+    padding-top: 2rem;
 
     div {
         color: ${color.light};
@@ -45,5 +46,23 @@ export const Wrapper = styled.div`
         position: absolute;
         top: 0;
         left: 0;
+    }
+
+    @media screen and (min-width: 750px) {
+        background-size: 60%;
+        background-position: 100% 20%;
+
+        ::after {
+            opacity: 1;
+            background: linear-gradient(
+                to right,
+                ${color.accent} 50%,
+                transparent
+            );
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        background-position: 100% 35%;
     }
 `

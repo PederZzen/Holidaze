@@ -18,7 +18,7 @@ const usePostPut = () => {
             const response = await fetch(url, postData)
             const json = await response.json()
             setResponse(json)
-            // window.location.reload()
+            window.location.reload()
         } catch (err) {
             setError(err)
         }

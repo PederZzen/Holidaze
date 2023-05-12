@@ -1,6 +1,6 @@
-$main: #BB2649;
-$accent: #2F4858;
-$light: #FFFCF8;
+$main: #bb2649;
+$accent: #2f4858;
+$light: #fffcf8;
 $dark: #252525;
 
 * {
@@ -22,7 +22,7 @@ a {
     text-decoration: none;
 }
 
-p, 
+p,
 a {
     color: $dark;
 }
@@ -31,7 +31,7 @@ a {
     background-color: $accent;
 
     &:hover {
-        background-color: $accent !important; 
+        background-color: $accent !important;
         filter: brightness(120%);
     }
 }
@@ -39,9 +39,9 @@ a {
 .ant-btn-default {
     background-color: $light;
     color: $accent;
-    
+
     &:hover {
-        border-color: $accent !important; 
+        border-color: $accent !important;
         color: $accent !important;
     }
 }

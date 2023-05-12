@@ -35,7 +35,7 @@ const Login = () => {
                 const response = await fetch(url, postData)
                 const json = await response.json()
 
-                if (response.ok == true) {
+                if (response.ok === true) {
                     localStorage.setItem('token', json.accessToken)
                     localStorage.setItem('name', json.name)
                     navigate('/')

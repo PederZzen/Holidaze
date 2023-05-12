@@ -12,22 +12,22 @@ import RouteNotFound from './pages/404'
 import Profile from './pages/profile'
 
 const App = () => {
-  return (
-    <>
-    <Layout>
-      <Routes>
-        <Route index element={<Home/>}/>
-        <Route path="createvenue" element={<CreateVenue/>}/>
-        <Route path="success" element={<Success/>}/>
-        <Route path="login" element={<Login/>}/>
-        <Route path="register" element={<Register/>}/>
-        <Route path="profile/:user" element={<Profile/>}/>
-        <Route path="venue/:id" element={<Venue/>}/>
-        <Route path="*" element={<RouteNotFound/>}/>
-      </Routes>
-    </Layout>
-    </>
-  )
+    return (
+        <>
+            <Layout>
+                <Routes>
+                    <Route index element={<Home />} />
+                    <Route path="createvenue" element={<CreateVenue />} />
+                    <Route path="success" element={<Success />} />
+                    <Route path="login" element={<Login />} />
+                    <Route path="register" element={<Register />} />
+                    <Route path="profile/:user" element={<Profile />} />
+                    <Route path="venue/:id" element={<Venue />} />
+                    <Route path="*" element={<RouteNotFound />} />
+                </Routes>
+            </Layout>
+        </>
+    )
 }
 
 export default App

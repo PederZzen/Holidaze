@@ -1,11 +1,7 @@
-import { Wrapper } from "./style"
+import { Wrapper } from './style'
 
-const Button = ({ content }) => {
-  return (
-    <Wrapper>
-      {content}
-    </Wrapper>
-  )
+const Button = ({ content, onClick }) => {
+    return <Wrapper onClick={onClick}>{content}</Wrapper>
 }
 
 export default Button
