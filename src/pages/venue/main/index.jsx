@@ -19,7 +19,7 @@ const Main = ({ venue }) => {
             <Description desc={venue.description} />
             <Amenities meta={venue.meta} />
             <Owner owner={venue.owner} />
-            <CheckAvailability />
+            <CheckAvailability venue={venue} />
         </Wrapper>
     )
 }

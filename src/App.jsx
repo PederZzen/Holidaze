@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
+import 'react-calendar/dist/Calendar.css'
 import './main.scss'
 import Layout from './components/layout'
 import Success from './pages/checkoutSuccess'
