@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 import { color } from '../../../utils/constants'
+import background from './home-background.png'
 
 export const Wrapper = styled.div`
-    background: url('home-background.png') no-repeat right;
+    background: url(${background}) no-repeat right;
     background-size: cover;
     height: 80vh;
     z-index: 1;

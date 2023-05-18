@@ -20,6 +20,7 @@ export const Wrapper = styled.div`
             .react-calendar__tile--now {
                 background-color: ${color.main};
                 color: white;
+                opacity: 0.8;
                 border-radius: 0.5rem;
             }
 
