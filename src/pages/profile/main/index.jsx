@@ -5,6 +5,7 @@ import Venues from './venues'
 
 const Main = ({ profile }) => {
     const user = localStorage.getItem('name')
+    console.log('hei')
     return (
         <Wrapper>
             <StyledTabs
