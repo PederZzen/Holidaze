@@ -3,28 +3,20 @@ import { Link } from 'react-router-dom'
 import MaxGuests from '../data/maxGuests'
 import Price from '../data/price'
 import { Content, Wrapper } from './style'
-import { useState } from 'react'
-import { useEffect } from 'react'
 import Amenities from './amenities'
+import useWindowWidth from '../../hooks/useWindowWidth'
+import placeholder from './placeholder.jpg'
 
-const Venue = ({ venue }) => {
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth)
-
-    useEffect(() => {
-        function handleResize() {
-            setWindowWidth(window.innerWidth)
-        }
-        window.addEventListener('resize', handleResize)
-
-        return () => {
-            window.removeEventListener('resize', handleResize)
-        }
-    }, [])
+const Venue = ({ venue, booking }) => {
+    const { windowWidth } = useWindowWidth()
 
     return (
         <Link to={`/venue/${venue.id}`}>
             <Wrapper>
-                <img src={venue.media} alt={venue.name} />
+                <img
+                    src={venue.media ? venue.media : placeholder}
+                    alt={venue.name}
+                />
                 <Content>
                     <div>
                         <div id="title">
@@ -33,6 +25,15 @@ const Venue = ({ venue }) => {
                         </div>
                         {windowWidth >= 750 ? (
                             <Amenities meta={venue.meta} />
+                        ) : (
+                            ''
+                        )}
+                        {booking ? (
+                            <div>
+                                <p>
+                                    {booking.dateFrom} to {booking.dateTo}
+                                </p>
+                            </div>
                         ) : (
                             ''
                         )}

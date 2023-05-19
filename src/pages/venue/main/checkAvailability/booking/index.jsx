@@ -1,4 +1,4 @@
-import { Form, InputNumber } from 'antd'
+import { Form } from 'antd'
 import React, { useEffect, useState } from 'react'
 import { Wrapper } from './style'
 import Button from '../../../../../components/button'
@@ -16,8 +16,11 @@ const Booking = ({ venue }) => {
     const [inputError, setInputError] = useState('')
 
     const handleDateChange = (date) => {
-        const formattedDates = date.map((d) => dayjs(d).format())
-        setSelectedDates(formattedDates)
+        const formattedDates = date.map((d) => dayjs(d))
+        const diffDates = formattedDates[1].diff(formattedDates[0], 'day')
+        const formattedStringDates = formattedDates.map((d) => d.format())
+        setSelectedDates(formattedStringDates)
+        setTotalDays(diffDates)
     }
 
     const handleGuestsChange = (event) => {
@@ -78,7 +81,7 @@ const Booking = ({ venue }) => {
         <Wrapper>
             <Form>
                 <div>
-                    <p>Dates</p>
+                    <h2>Dates</h2>
                     <Calendar
                         tileDisabled={tileDisabled}
                         selectRange={true}
@@ -87,7 +90,7 @@ const Booking = ({ venue }) => {
                     />
                 </div>
                 <div>
-                    <p>Guests</p>
+                    <h2>Guests</h2>
                     <input
                         type="number"
                         min={1}
@@ -97,11 +100,11 @@ const Booking = ({ venue }) => {
                 </div>
                 <span>{inputError}</span>
             </Form>
-            <div>
+            <div className="drawer-footer">
                 <div>
-                    <p>Total</p>
+                    <h3>Total</h3>
                     <p>{venue.price * totalDays}</p>
-                    <p>{`${totalDays} days`}</p>
+                    <p>{`${totalDays} nights`}</p>
                 </div>
                 <div>
                     <Button content={'Reserve now'} onClick={onSubmit} />

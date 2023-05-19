@@ -2,9 +2,9 @@ import React from 'react'
 import Amenities from './amenities'
 import Description from './description'
 import Owner from './owner'
-import CheckAvailability from './checkAvailability'
 import { Wrapper } from './style'
 import Details from './details'
+import CheckAvailability from './checkAvailability'
 
 const Main = ({ venue }) => {
     return (

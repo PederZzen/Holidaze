@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
 
     img {
         height: 17rem;
+        width: 100%;
         object-fit: cover;
     }
 

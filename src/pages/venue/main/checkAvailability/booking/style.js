@@ -7,6 +7,15 @@ export const Wrapper = styled.div`
     justify-content: space-between;
     height: 100%;
 
+    h2 {
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
     form {
         display: flex;
         flex-direction: column;
@@ -16,6 +25,7 @@ export const Wrapper = styled.div`
             border-radius: 0.5rem;
             border-color: lightgray;
             overflow: hidden;
+            background-color: ${color.light};
 
             .react-calendar__tile--now {
                 background-color: ${color.main};
@@ -35,10 +45,19 @@ export const Wrapper = styled.div`
                 border-radius: 0.5rem 0 0 0.5rem;
             }
         }
+
+        input[type='number'] {
+            width: 4rem;
+            padding: 0.5rem;
+            outline: none;
+            border: 1px solid lightgray;
+            border-radius: 0.5rem;
+        }
     }
 
-    > div:first-of-type {
+    .drawer-footer {
         display: flex;
         justify-content: space-between;
+        align-items: center;
     }
 `

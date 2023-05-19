@@ -8,4 +8,8 @@ export const Wrapper = styled.div`
     position: relative;
     top: -2rem;
     background-color: ${color.light};
+
+    img {
+        width: 100%;
+    }
 `
