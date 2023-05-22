@@ -8,7 +8,7 @@ import { StyledForm } from '../../styles/formStyle'
 import { PROFILE_URL, VENUES_URL } from '../../utils/constants'
 import { schema } from './schema'
 import { Wrapper } from './style'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const CreateVenue = () => {
     const [inputFields, setInputFields] = useState([''])

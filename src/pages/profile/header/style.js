@@ -1,10 +1,12 @@
-import styled from "styled-components";
-import { color } from "../../../utils/constants";
+import styled from 'styled-components'
+import { color } from '../../../utils/constants'
 
-export const Wrapper = styled.div `
+export const Wrapper = styled.div`
     text-align: center;
     position: relative;
-    padding: 1.5rem 0 5rem;
+    padding: 2rem 0.5rem 5rem;
+    max-width: 1200px;
+    margin: auto;
 
     * {
         color: ${color.light};
@@ -30,7 +32,7 @@ export const Wrapper = styled.div `
     h2 {
         font-size: 1rem;
         font-weight: 500;
-        opacity: .5;
+        opacity: 0.5;
         max-width: 80%;
         word-wrap: break-word;
         display: inline-block;
@@ -46,22 +48,33 @@ export const Wrapper = styled.div `
             transform: translate(-50%);
             bottom: -0.5rem;
         }
-
     }
     h3 {
         margin-top: 1rem;
-        opacity: .5;
+        opacity: 0.5;
         font-weight: 500;
     }
 
     svg {
         position: absolute;
         bottom: 2rem;
-        right: .5rem;
+        right: 0.5rem;
         font-size: 1.5rem;
         color: ${color.light};
         cursor: pointer;
     }
 
+    @media screen and (min-width: 750px) {
+        text-align: left;
+        display: flex;
+        align-items: center;
 
+        h2 {
+            max-width: 100%;
+        }
+
+        img {
+            width: 80%;
+        }
+    }
 `

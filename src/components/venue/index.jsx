@@ -23,10 +23,7 @@ const Venue = ({ venue, booking }) => {
     return (
         <Link to={`/venue/${venue.id}`}>
             <Wrapper>
-                <img
-                    src={venue.media ? venue.media : placeholder}
-                    alt={venue.name}
-                />
+                <img src={venue?.media[0] || placeholder} alt={venue?.name} />
                 <Content>
                     <div>
                         <div id="title">

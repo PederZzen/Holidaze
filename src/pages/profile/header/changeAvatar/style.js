@@ -2,17 +2,17 @@ import styled from 'styled-components'
 import { color } from '../../../../utils/constants'
 
 export const Wrapper = styled.div`
-    max-width: 1200px;
-    margin: auto;
-    position: relative;
-    bottom: -5rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
 `
 
 export const SettingsDropdown = styled.div`
     background-color: ${color.light};
     z-index: 2;
     position: absolute;
-    right: 0;
+    right: 0.5rem;
+    width: 10rem;
     bottom: -5rem;
     padding: 0 1rem 1rem;
     box-shadow: 0 0 5px -2px ${color.accent};

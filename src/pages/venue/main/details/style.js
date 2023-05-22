@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { color } from '../../../../utils/constants'
+import { Modal } from 'antd'
 
 export const Wrapper = styled.div`
     padding: 3rem 0.5rem;
@@ -47,5 +48,12 @@ export const GuestsAndPrice = styled.div`
         span {
             font-weight: 500;
         }
+    }
+`
+
+export const StyledModal = styled(Modal)`
+    .ant-modal-content,
+    .ant-modal-header {
+        background-color: ${color.light};
     }
 `

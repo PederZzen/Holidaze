@@ -11,9 +11,4 @@ export const Wrapper = styled.div`
             margin-bottom: 0.5rem;
         }
     }
-
-    h2 {
-        font-size: 1.3rem;
-        font-weight: 500;
-    }
 `

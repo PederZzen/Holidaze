@@ -23,7 +23,7 @@ const Venues = ({ venues }) => {
                 />
             </Search>
             {filteredVenues
-                ? filteredVenues.map((venue, idx) => {
+                ? filteredVenues?.map((venue, idx) => {
                       return (
                           <Venue key={idx} venue={venue}>
                               {venue.name}

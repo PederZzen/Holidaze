@@ -24,6 +24,13 @@ const Media = ({ media, name }) => {
                     })}
                 </Image.PreviewGroup>
             </div>
+            <div>
+                <Image
+                    preview={{ visible: false }}
+                    src={media[1]}
+                    onClick={() => setVisible(true)}
+                />
+            </div>
         </Wrapper>
     )
 }

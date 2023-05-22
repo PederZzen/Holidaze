@@ -4,11 +4,19 @@ import { useNavigate } from 'react-router-dom'
 import MaxGuests from '../../../../components/data/maxGuests'
 import Price from '../../../../components/data/price'
 import { Icons, VENUES_URL } from '../../../../utils/constants'
-import { Wrapper, EditPost, SettingsIcon, GuestsAndPrice } from './style'
+import {
+    Wrapper,
+    EditPost,
+    SettingsIcon,
+    GuestsAndPrice,
+    StyledModal,
+} from './style'
 import usePostPut from '../../../../hooks/usePostPut'
 import { StyledForm } from '../../../../styles/formStyle'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { schema } from '../../../createVenue/schema'
+import Button from '../../../../components/button'
 
 const Details = ({ venue }) => {
     const [settings, showSettings] = useState(false)
@@ -17,23 +25,31 @@ const Details = ({ venue }) => {
     const [fetchData, response, error] = usePostPut()
     const navigate = useNavigate()
 
+    const onSubmit = async (data) => {
+        try {
+            await fetchData(VENUES_URL + venue.id, data, 'PUT')
+            window.location.reload()
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm({
-        resolver: yupResolver(),
+        resolver: yupResolver(schema),
     })
 
     const showModal = () => {
         setIsModalOpen(true)
     }
-    const handleOk = () => {
-        setIsModalOpen(false)
-    }
+
     const handleCancel = () => {
         setIsModalOpen(false)
     }
+
     const deleteVenue = () => {
         fetchData(VENUES_URL + venue.id, null, 'DELETE')
         console.log(response)
@@ -53,7 +69,6 @@ const Details = ({ venue }) => {
             showSettings(false)
         }
     }
-    const onSubmit = (data) => {}
 
     return (
         <Wrapper>
@@ -71,11 +86,11 @@ const Details = ({ venue }) => {
                 ''
             )}
             {settings ? settingsDropdown : ''}
-            <Modal
+            <StyledModal
                 title="Edit post"
                 open={isModalOpen}
-                onOk={handleOk}
                 onCancel={handleCancel}
+                footer={null}
             >
                 <StyledForm onSubmit={handleSubmit(onSubmit)}>
                     <div>
@@ -87,7 +102,7 @@ const Details = ({ venue }) => {
                             {...register('name')}
                         />
                         <label htmlFor="name">*Name of venue</label>
-                        <span>&nbsp;</span>
+                        <span>{errors.name?.message}&nbsp;</span>
                     </div>
                     <div>
                         <textarea
@@ -124,11 +139,10 @@ const Details = ({ venue }) => {
                     <div>
                         {venue.media.map((img, idx) => {
                             return (
-                                <div>
+                                <div key={idx}>
                                     <input
                                         style={{ marginBottom: '1rem' }}
                                         type="text"
-                                        key={idx}
                                         id={`media-[${idx}]`}
                                         defaultValue={img}
                                         {...register(`media[${idx}]`)}
@@ -177,8 +191,9 @@ const Details = ({ venue }) => {
                             <label htmlFor="pets">Pet friendly</label>
                         </div>
                     </section>
+                    <Button content="Update venue" />
                 </StyledForm>
-            </Modal>
+            </StyledModal>
         </Wrapper>
     )
 }

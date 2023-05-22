@@ -7,6 +7,11 @@ export const Wrapper = styled.div`
     position: relative;
     top: -2rem;
 
+    h2 {
+        font-size: 1.3rem;
+        font-weight: 500;
+    }
+
     @media screen and (min-width: 750px) {
         max-width: 750px;
         margin: auto;
