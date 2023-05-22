@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form'
 import usePostPut from '../../../../hooks/usePostPut'
 import { Icons, PROFILE_URL } from '../../../../utils/constants'
 import { schema } from './schema'
-import { Input, SettingsDropdown } from './style'
+import { Input, SettingsDropdown, Wrapper } from './style'
 
 const ChangeAvatar = ({ name }) => {
     const userName = localStorage.getItem('name')
@@ -57,7 +57,7 @@ const ChangeAvatar = ({ name }) => {
     )
 
     return (
-        <>
+        <Wrapper>
             {name === localStorage.getItem('name') ? (
                 <FontAwesomeIcon
                     onClick={toggleSettings}
@@ -80,7 +80,7 @@ const ChangeAvatar = ({ name }) => {
                 />
                 <span>{errors.avatar?.message}</span>
             </Modal>
-        </>
+        </Wrapper>
     )
 }
 

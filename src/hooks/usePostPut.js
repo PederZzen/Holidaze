@@ -13,12 +13,15 @@ const usePostPut = () => {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`,
                 },
-                body: JSON.stringify(data),
             }
+
+            if (data) {
+                postData.body = JSON.stringify(data)
+            }
+
             const response = await fetch(url, postData)
             const json = await response.json()
             setResponse(json)
-            window.location.reload()
         } catch (err) {
             setError(err)
         }

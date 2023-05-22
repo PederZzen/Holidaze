@@ -52,6 +52,7 @@ export const Wrapper = styled.div`
             outline: none;
             border: 1px solid lightgray;
             border-radius: 0.5rem;
+            background-color: ${color.light};
         }
     }
 

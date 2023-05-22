@@ -5,13 +5,16 @@ import { useForm } from 'react-hook-form'
 import Button from '../../components/button'
 import usePostPut from '../../hooks/usePostPut'
 import { StyledForm } from '../../styles/formStyle'
-import { VENUES_URL } from '../../utils/constants'
+import { PROFILE_URL, VENUES_URL } from '../../utils/constants'
 import { schema } from './schema'
 import { Wrapper } from './style'
+import { useNavigate, useParams } from 'react-router-dom'
 
 const CreateVenue = () => {
     const [inputFields, setInputFields] = useState([''])
     const [fetchData, response, error] = usePostPut()
+    const user = localStorage.getItem('name')
+    const navigate = useNavigate()
 
     const {
         register,
@@ -22,8 +25,24 @@ const CreateVenue = () => {
     })
 
     const onSubmit = (data) => {
-        fetchData(VENUES_URL, data, 'POST')
-        console.log(response)
+        const formData = { ...data }
+        if (formData.media) {
+            formData.media = formData.media.filter(
+                (mediaItem) => mediaItem !== ''
+            )
+        } else {
+            formData.media = []
+        }
+        const manager = {
+            venueManager: true,
+        }
+
+        fetchData(`${PROFILE_URL}${user}`, manager, 'PUT')
+
+        setTimeout(() => {
+            fetchData(VENUES_URL, formData, 'POST')
+            navigate('/profile/' + user)
+        }, 1000)
     }
 
     const add = () => {
@@ -36,8 +55,8 @@ const CreateVenue = () => {
             <StyledForm onSubmit={handleSubmit(onSubmit)}>
                 <div>
                     <input
-                        type="name"
-                        placeholder=""
+                        type="text"
+                        placeholder=" "
                         id="name"
                         {...register('name')}
                     />
@@ -80,21 +99,24 @@ const CreateVenue = () => {
                 </div>
 
                 <div>
-                    {inputFields.map((field, idx) => {
-                        return (
+                    {inputFields.map((field, idx) => (
+                        <div key={idx}>
                             <input
                                 type="text"
-                                key={idx}
                                 placeholder=" "
                                 id={`media-${idx}`}
                                 {...register(`media[${idx}]`)}
                                 style={{ marginBottom: '1rem' }}
                             />
-                        )
-                    })}
-                    <label htmlFor="media-0">Media</label>
-                    <p onClick={add}>Add more</p>
-                    <span>{errors.media?.message}&nbsp;</span>
+                            {idx === 0 && (
+                                <label htmlFor={`media-${idx}`}>Media</label>
+                            )}
+                            {idx === inputFields.length - 1 && (
+                                <p onClick={add}>Add more</p>
+                            )}
+                            <span>{errors.media?.[idx]?.message}&nbsp;</span>
+                        </div>
+                    ))}
                 </div>
 
                 <section>

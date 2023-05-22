@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import MaxGuests from '../data/maxGuests'
 import Price from '../data/price'
@@ -6,9 +6,19 @@ import { Content, Wrapper } from './style'
 import Amenities from './amenities'
 import useWindowWidth from '../../hooks/useWindowWidth'
 import placeholder from './placeholder.jpg'
+import dayjs from 'dayjs'
 
 const Venue = ({ venue, booking }) => {
     const { windowWidth } = useWindowWidth()
+    const [dateFrom, setDateFrom] = useState()
+    const [dateTo, setDateTo] = useState()
+
+    useEffect(() => {
+        if (booking) {
+            setDateFrom(dayjs(booking.dateFrom).format('D MMM YYYY'))
+            setDateTo(dayjs(booking.dateTo).format('D MMM YYYY'))
+        }
+    }, [])
 
     return (
         <Link to={`/venue/${venue.id}`}>
@@ -29,9 +39,9 @@ const Venue = ({ venue, booking }) => {
                             ''
                         )}
                         {booking ? (
-                            <div>
+                            <div id="booking">
                                 <p>
-                                    {booking.dateFrom} to {booking.dateTo}
+                                    {dateFrom} - {dateTo}
                                 </p>
                             </div>
                         ) : (

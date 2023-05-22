@@ -41,4 +41,13 @@ export const Content = styled.div`
             font-weight: 500;
         }
     }
+
+    #booking {
+        margin-top: 1rem;
+
+        * {
+            font-size: 1rem;
+            color: gray;
+        }
+    }
 `

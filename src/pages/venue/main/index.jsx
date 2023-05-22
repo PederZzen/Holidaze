@@ -7,19 +7,19 @@ import Details from './details'
 import CheckAvailability from './checkAvailability'
 
 const Main = ({ venue }) => {
+    const user = localStorage.getItem('name')
+
     return (
         <Wrapper>
-            <Details
-                name={venue.name}
-                price={venue.price}
-                id={venue.id}
-                maxGuests={venue.maxGuests}
-                owner={venue.owner.name}
-            />
+            <Details venue={venue} />
             <Description desc={venue.description} />
             <Amenities meta={venue.meta} />
             <Owner owner={venue.owner} />
-            <CheckAvailability venue={venue} />
+            {user === venue.owner.name ? (
+                ''
+            ) : (
+                <CheckAvailability venue={venue} />
+            )}
         </Wrapper>
     )
 }

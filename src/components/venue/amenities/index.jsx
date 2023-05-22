@@ -33,7 +33,7 @@ const Amenities = ({ meta }) => {
             {meta.pets ? (
                 <div>
                     <FontAwesomeIcon icon={Icons.petIcon} />
-                    <p>Pets friendly</p>
+                    <p>Pet friendly</p>
                 </div>
             ) : (
                 ''
