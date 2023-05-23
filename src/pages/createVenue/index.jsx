@@ -37,6 +37,8 @@ const CreateVenue = () => {
             venueManager: true,
         }
 
+        console.log(data)
+
         fetchData(`${PROFILE_URL}${user}`, manager, 'PUT')
 
         setTimeout(() => {
@@ -120,6 +122,7 @@ const CreateVenue = () => {
                 </div>
 
                 <section>
+                    <h2>Amenities</h2>
                     <div>
                         <input
                             type="checkbox"
@@ -153,6 +156,58 @@ const CreateVenue = () => {
                         <label htmlFor="pets">Pet friendly</label>
                     </div>
                 </section>
+
+                <h2>Location</h2>
+                <div>
+                    <input
+                        type="text"
+                        placeholder=" "
+                        id="address"
+                        {...register('location.address')}
+                    />
+                    <label htmlFor="address">Address</label>
+                    <span>{errors.address?.message}&nbsp;</span>
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        placeholder=" "
+                        id="city"
+                        {...register('location.city')}
+                    />
+                    <label htmlFor="city">City</label>
+                    <span>{errors.city?.message}&nbsp;</span>
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        placeholder=" "
+                        id="zip"
+                        {...register('location.zip')}
+                    />
+                    <label htmlFor="zip">ZIP</label>
+                    <span>{errors.zip?.message}&nbsp;</span>
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        placeholder=" "
+                        id="country"
+                        {...register('location.country')}
+                    />
+                    <label htmlFor="country">Country</label>
+                    <span>{errors.country?.message}&nbsp;</span>
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        placeholder=" "
+                        id="continent"
+                        {...register('location.continent')}
+                    />
+                    <label htmlFor="continent">Continent</label>
+                    <span>{errors.continent?.message}&nbsp;</span>
+                </div>
 
                 <Button content="Create venue" />
             </StyledForm>

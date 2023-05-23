@@ -19,5 +19,12 @@ export const schema = yup
             breakfast: yup.boolean(),
             pets: yup.boolean(),
         }),
+        location: yup.object().shape({
+            address: yup.string(),
+            city: yup.string(),
+            zip: yup.string(),
+            country: yup.string(),
+            continent: yup.string(),
+        }),
     })
     .required()

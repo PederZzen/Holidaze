@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { color } from '../../utils/constants'
 
 export const Wrapper = styled.div`
     margin: auto;
@@ -12,5 +11,11 @@ export const Wrapper = styled.div`
     h1 {
         margin-bottom: 2rem;
         text-align: center;
+    }
+
+    h2 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 2rem 0;
     }
 `

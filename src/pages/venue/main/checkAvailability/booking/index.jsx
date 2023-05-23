@@ -6,6 +6,7 @@ import Calendar from 'react-calendar'
 import dayjs from 'dayjs'
 import usePostPut from '../../../../../hooks/usePostPut'
 import { BOOKINGS_URL } from '../../../../../utils/constants'
+import { useNavigate } from 'react-router-dom'
 
 const Booking = ({ venue }) => {
     const [totalDays, setTotalDays] = useState('')
@@ -14,6 +15,8 @@ const Booking = ({ venue }) => {
     const [guests, setGuests] = useState(0)
     const [fetchData, response, error] = usePostPut()
     const [inputError, setInputError] = useState('')
+    const navigate = useNavigate()
+    const user = localStorage.getItem('name')
 
     const handleDateChange = (date) => {
         const formattedDates = date.map((d) => dayjs(d))
@@ -72,6 +75,7 @@ const Booking = ({ venue }) => {
 
         if (data.guests && data.dateTo && data.dateFrom && data.venueId) {
             fetchData(BOOKINGS_URL, data, 'POST')
+            navigate(`/profile/${user}`)
         } else {
             setInputError('*Please select dates and guests')
         }

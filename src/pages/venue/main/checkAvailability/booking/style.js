@@ -28,10 +28,9 @@ export const Wrapper = styled.div`
             background-color: ${color.light};
 
             .react-calendar__tile--now {
-                background-color: ${color.main};
+                background-color: ${color.accent};
                 color: white;
-                opacity: 0.8;
-                border-radius: 0.5rem;
+                opacity: 0.6;
             }
 
             .react-calendar__tile--active {

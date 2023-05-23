@@ -4,7 +4,7 @@ import { Wrapper } from './style'
 const Header = ({ venue }) => {
     return (
         <Wrapper>
-            <Media media={venue.media} name={venue.name} />
+            <Media venue={venue} />
         </Wrapper>
     )
 }

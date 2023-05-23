@@ -7,7 +7,8 @@ export const Wrapper = styled.div`
     padding: 3rem 0.5rem;
 
     h1 {
-        font-size: 1.2rem;
+        font-size: 1.6rem;
+        font-weight: 500;
         margin-bottom: 0.7rem;
     }
 `
@@ -55,5 +56,20 @@ export const StyledModal = styled(Modal)`
     .ant-modal-content,
     .ant-modal-header {
         background-color: ${color.light};
+    }
+
+    .mediaField {
+        position: relative;
+
+        button {
+            position: absolute;
+            background-color: red;
+            right: 0.5rem;
+            top: 0.35rem;
+            height: 2rem;
+            width: 2rem;
+            border-radius: 50%;
+            border: none;
+        }
     }
 `

@@ -24,11 +24,19 @@ const Details = ({ venue }) => {
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [fetchData, response, error] = usePostPut()
     const navigate = useNavigate()
+    const [inputFields, setInputFields] = useState(
+        venue.media.map((img) => ({ value: img, visible: true }))
+    )
 
     const onSubmit = async (data) => {
         try {
+            const updatedMedia = inputFields.map(
+                ({ visible, ...rest }) => rest.value
+            )
+            data.media = updatedMedia
             await fetchData(VENUES_URL + venue.id, data, 'PUT')
             window.location.reload()
+            console.log(data)
         } catch (err) {
             console.log(err)
         }
@@ -68,6 +76,17 @@ const Details = ({ venue }) => {
         if (settings) {
             showSettings(false)
         }
+    }
+
+    const removeInputField = (index) => {
+        const updatedFields = [...inputFields]
+        updatedFields[index].visible = false
+        updatedFields.splice(index, 1)
+        setInputFields(updatedFields)
+    }
+
+    const addInputField = () => {
+        setInputFields([...inputFields, { value: '', visible: true }])
     }
 
     return (
@@ -137,16 +156,45 @@ const Details = ({ venue }) => {
                         <span>&nbsp;</span>
                     </div>
                     <div>
-                        {venue.media.map((img, idx) => {
+                        {inputFields.map((field, idx) => {
+                            if (!field.visible) return null
                             return (
-                                <div key={idx}>
-                                    <input
-                                        style={{ marginBottom: '1rem' }}
-                                        type="text"
-                                        id={`media-[${idx}]`}
-                                        defaultValue={img}
-                                        {...register(`media[${idx}]`)}
-                                    />
+                                <div key={idx} className="mediaField">
+                                    <div>
+                                        <input
+                                            placeholder=" "
+                                            style={{ marginBottom: '0.5rem' }}
+                                            type="text"
+                                            id={`media-[${idx}]`}
+                                            defaultValue={field.value}
+                                            {...register(`media[${idx}]`)}
+                                            onChange={(e) => {
+                                                const updatedFields = [
+                                                    ...inputFields,
+                                                ]
+                                                updatedFields[idx].value =
+                                                    e.target.value
+                                                setInputFields(updatedFields)
+                                            }}
+                                        />
+                                        {idx === 0 && (
+                                            <label htmlFor={`media-${idx}`}>
+                                                Media
+                                            </label>
+                                        )}
+                                        <span>
+                                            {errors.media?.[idx]?.message}&nbsp;
+                                        </span>
+                                    </div>
+
+                                    <button
+                                        onClick={() => removeInputField(idx)}
+                                    >
+                                        Remove
+                                    </button>
+                                    {idx === inputFields.length - 1 && (
+                                        <p onClick={addInputField}>Add more</p>
+                                    )}
                                 </div>
                             )
                         })}
@@ -191,6 +239,63 @@ const Details = ({ venue }) => {
                             <label htmlFor="pets">Pet friendly</label>
                         </div>
                     </section>
+
+                    <h2>Location</h2>
+                    <div>
+                        <input
+                            type="text"
+                            placeholder=" "
+                            id="address"
+                            defaultValue={venue.location.address}
+                            {...register('location.address')}
+                        />
+                        <label htmlFor="address">Address</label>
+                        <span>{errors.address?.message}&nbsp;</span>
+                    </div>
+                    <div>
+                        <input
+                            type="text"
+                            placeholder=" "
+                            defaultValue={venue.location.city}
+                            id="city"
+                            {...register('location.city')}
+                        />
+                        <label htmlFor="city">City</label>
+                        <span>{errors.city?.message}&nbsp;</span>
+                    </div>
+                    <div>
+                        <input
+                            type="text"
+                            placeholder=" "
+                            id="zip"
+                            defaultValue={venue.location.zip}
+                            {...register('location.zip')}
+                        />
+                        <label htmlFor="zip">ZIP</label>
+                        <span>{errors.zip?.message}&nbsp;</span>
+                    </div>
+                    <div>
+                        <input
+                            type="text"
+                            placeholder=" "
+                            id="country"
+                            defaultValue={venue.location.country}
+                            {...register('location.country')}
+                        />
+                        <label htmlFor="country">Country</label>
+                        <span>{errors.country?.message}&nbsp;</span>
+                    </div>
+                    <div>
+                        <input
+                            type="text"
+                            placeholder=" "
+                            id="continent"
+                            defaultValue={venue.location.continent}
+                            {...register('location.continent')}
+                        />
+                        <label htmlFor="continent">Continent</label>
+                        <span>{errors.continent?.message}&nbsp;</span>
+                    </div>
                     <Button content="Update venue" />
                 </StyledForm>
             </StyledModal>
