@@ -14,13 +14,15 @@ const Venues = ({ venues }) => {
     return (
         <Wrapper>
             <Search>
-                <FontAwesomeIcon icon={Icons.searchIcon} />
-                <input
-                    type="text"
-                    onChange={(e) => {
-                        setSearch(e.target.value)
-                    }}
-                />
+                <div>
+                    <FontAwesomeIcon icon={Icons.searchIcon} />
+                    <input
+                        type="text"
+                        onChange={(e) => {
+                            setSearch(e.target.value)
+                        }}
+                    />
+                </div>
             </Search>
             {filteredVenues
                 ? filteredVenues?.map((venue, idx) => {

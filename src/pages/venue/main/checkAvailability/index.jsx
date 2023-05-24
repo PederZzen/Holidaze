@@ -19,7 +19,7 @@ const CheckAvailability = ({ venue }) => {
 
     return (
         <Wrapper>
-            {windowWidth >= 750 ? (
+            {windowWidth >= 750 && token ? (
                 <Booking venue={venue} />
             ) : (
                 <BookingDrawer
