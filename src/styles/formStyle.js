@@ -66,6 +66,7 @@ export const StyledForm = styled.form`
             input {
                 appearance: none;
                 position: relative;
+                cursor: pointer;
 
                 &::before {
                     content: '';

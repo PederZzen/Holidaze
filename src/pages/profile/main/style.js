@@ -4,7 +4,6 @@ import { color } from '../../../utils/constants'
 
 export const Wrapper = styled.div`
     background-color: ${color.light};
-    border-radius: 1rem 1rem 0 0;
     height: 100vh;
 
     .ant-tabs-tab {

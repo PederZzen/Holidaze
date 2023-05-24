@@ -3,7 +3,6 @@ import { color } from '../../../utils/constants'
 
 export const Wrapper = styled.div`
     z-index: 2;
-    border-radius: 2rem;
     padding-top: 2rem;
     position: relative;
     top: -2rem;

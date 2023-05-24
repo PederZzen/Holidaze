@@ -3,6 +3,8 @@ import { Image } from 'antd'
 import { Wrapper } from './style'
 import useWindowWidth from '../../../../hooks/useWindowWidth'
 import { useEffect } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Icons } from '../../../../utils/constants'
 
 const Media = ({ venue }) => {
     const [visible, setVisible] = useState(false)
@@ -20,6 +22,7 @@ const Media = ({ venue }) => {
                 src={venue.media[0]}
                 onClick={() => setVisible(true)}
             />
+            {/* <FontAwesomeIcon icon={Icons.imagesIcon} /> */}
             <div style={{ display: 'none' }}>
                 <Image.PreviewGroup
                     preview={{
@@ -34,7 +37,7 @@ const Media = ({ venue }) => {
             </div>
             {windowWidth > 750 ? (
                 <div className="gallery">
-                    {media.slice(0, 4).map((m, idx) => {
+                    {media.slice(0, 5).map((m, idx) => {
                         if (idx !== 0) {
                             return (
                                 <Image

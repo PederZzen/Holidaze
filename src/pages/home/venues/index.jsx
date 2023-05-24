@@ -18,6 +18,7 @@ const Venues = ({ venues }) => {
                     <FontAwesomeIcon icon={Icons.searchIcon} />
                     <input
                         type="text"
+                        placeholder="Search.."
                         onChange={(e) => {
                             setSearch(e.target.value)
                         }}

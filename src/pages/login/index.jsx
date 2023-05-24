@@ -11,7 +11,6 @@ import { schema } from './schema'
 
 const Login = () => {
     const navigate = useNavigate()
-    const [auth, setAuth] = useState(false)
     const [error, setError] = useState(null)
 
     const {
@@ -38,7 +37,7 @@ const Login = () => {
                 if (response.ok === true) {
                     localStorage.setItem('token', json.accessToken)
                     localStorage.setItem('name', json.name)
-                    navigate('/')
+                    navigate(-1)
                 } else {
                     setError('Something went wrong, please try again')
                 }

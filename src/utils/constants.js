@@ -1,6 +1,7 @@
 import {
     faCoffee,
     faGear,
+    faImages,
     faMagnifyingGlass,
     faParking,
     faPaw,
@@ -35,4 +36,5 @@ export const Icons = {
     breakfastIcon: faCoffee,
     settingsIcon: faGear,
     searchIcon: faMagnifyingGlass,
+    imagesIcon: faImages,
 }
