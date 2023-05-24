@@ -37,7 +37,7 @@ const Login = () => {
                 if (response.ok === true) {
                     localStorage.setItem('token', json.accessToken)
                     localStorage.setItem('name', json.name)
-                    navigate(-1)
+                    navigate('/')
                 } else {
                     setError('Something went wrong, please try again')
                 }

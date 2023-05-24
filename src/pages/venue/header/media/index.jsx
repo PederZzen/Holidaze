@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
 import { Image } from 'antd'
-import { Wrapper } from './style'
 import useWindowWidth from '../../../../hooks/useWindowWidth'
 import { useEffect } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Icons } from '../../../../utils/constants'
+import { Wrapper } from './style'
 
 const Media = ({ venue }) => {
     const [visible, setVisible] = useState(false)
@@ -22,7 +20,6 @@ const Media = ({ venue }) => {
                 src={venue.media[0]}
                 onClick={() => setVisible(true)}
             />
-            {/* <FontAwesomeIcon icon={Icons.imagesIcon} /> */}
             <div style={{ display: 'none' }}>
                 <Image.PreviewGroup
                     preview={{

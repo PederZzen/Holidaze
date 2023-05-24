@@ -12,7 +12,7 @@ const ChangeAvatar = ({ name }) => {
     const userName = localStorage.getItem('name')
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [showSettings, setShowSettings] = useState(false)
-    const [fetchData] = usePostPut()
+    const [fetchData, response] = usePostPut()
 
     const {
         register,
@@ -31,11 +31,13 @@ const ChangeAvatar = ({ name }) => {
             avatar: null,
         }
         fetchData(PROFILE_URL + userName + '/media', data, 'PUT')
+        window.location.reload()
     }
 
     const handleOk = (data) => {
         setIsModalOpen(false)
         fetchData(PROFILE_URL + userName + '/media', data, 'PUT')
+        window.location.reload()
     }
 
     const handleCancel = () => {
