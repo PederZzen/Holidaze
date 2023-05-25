@@ -3,10 +3,10 @@ import styled from 'styled-components'
 export const Wrapper = styled.div`
     position: relative;
     margin: 2rem 0.5rem 4rem;
-    max-width: 1200px;
+    max-width: 60rem;
 
     img {
-        height: 17rem;
+        height: 15rem;
         width: 100%;
         object-fit: cover;
     }
@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
     }
 
     @media screen and (min-width: 1200px) {
-        margin: 2rem auto 4rem;
+        /* margin: 2rem auto 4rem; */
     }
 `
 

@@ -3,9 +3,10 @@ import { color } from '../../../utils/constants'
 
 export const Wrapper = styled.div`
     z-index: 2;
-    padding-top: 2rem;
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 4rem;
     position: relative;
-    top: -2rem;
     background-color: ${color.light};
 
     img {

@@ -5,8 +5,14 @@ export const Wrapper = styled.div`
     text-align: center;
     position: relative;
     padding: 2rem 0.5rem 5rem;
-    max-width: 1200px;
     margin: auto;
+    background-color: ${color.accent};
+
+    > div {
+        max-width: 1200px;
+        margin: auto;
+        position: relative;
+    }
 
     * {
         color: ${color.light};
@@ -65,16 +71,18 @@ export const Wrapper = styled.div`
     }
 
     @media screen and (min-width: 750px) {
-        text-align: left;
-        display: flex;
-        align-items: center;
+        > div {
+            text-align: left;
+            display: flex;
+            align-items: center;
 
-        h2 {
-            max-width: 100%;
-        }
+            h2 {
+                max-width: 100%;
+            }
 
-        img {
-            width: 80%;
+            img {
+                width: 80%;
+            }
         }
     }
 `

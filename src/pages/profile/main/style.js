@@ -3,8 +3,10 @@ import { Tabs } from 'antd'
 import { color } from '../../../utils/constants'
 
 export const Wrapper = styled.div`
-    background-color: ${color.light};
+    /* background-color: ${color.light}; */
     height: 100vh;
+    max-width: 1200px;
+    margin: auto;
 
     .ant-tabs-tab {
         &:hover {
