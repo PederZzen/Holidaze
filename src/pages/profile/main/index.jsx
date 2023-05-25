@@ -14,8 +14,10 @@ const Main = ({ profile }) => {
                 items={new Array(3).fill(null).map((_, i) => {
                     const id = String(i + 1)
                     const label = [
-                        'Venues',
-                        user === profile.name ? 'Bookings' : '',
+                        user === profile.name
+                            ? 'My venues'
+                            : profile.name + 's Venues',
+                        user === profile.name ? 'My bookings' : '',
                     ]
                     const content = [
                         <Venues venues={profile.venues} />,

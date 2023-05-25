@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Button from '../../../../components/button'
 import { BookingDrawer, Wrapper } from './style'
 import Booking from './booking'

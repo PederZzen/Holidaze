@@ -11,7 +11,6 @@ const Location = ({ location }) => {
         regex.test(location.country) &&
         regex.test(location.continent)
 
-    console.log(location)
     return (
         <Wrapper>
             <h2>Location</h2>

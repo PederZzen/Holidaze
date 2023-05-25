@@ -1,6 +1,5 @@
 import { Drawer } from 'antd'
 import styled from 'styled-components'
-import { color } from '../../../../utils/constants'
 
 export const Wrapper = styled.div`
     margin: 4rem 0;

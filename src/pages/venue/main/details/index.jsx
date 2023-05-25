@@ -1,5 +1,4 @@
-import { Input, Modal } from 'antd'
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import MaxGuests from '../../../../components/data/maxGuests'
 import Price from '../../../../components/data/price'
@@ -89,8 +88,6 @@ const Details = ({ venue }) => {
         setInputFields([...inputFields, { value: '', visible: true }])
     }
 
-    const displayDeleteButton = (id) => {}
-
     return (
         <Wrapper>
             <h1>{venue.name}</h1>
@@ -178,7 +175,6 @@ const Details = ({ venue }) => {
                                                     e.target.value
                                                 setInputFields(updatedFields)
                                             }}
-                                            onMouseEnter={displayDeleteButton}
                                         />
                                         {idx === 0 && (
                                             <label htmlFor={`media-${idx}`}>

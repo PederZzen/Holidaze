@@ -74,7 +74,7 @@ const Booking = ({ venue }) => {
         )
 
         if (data.guests && data.dateTo && data.dateFrom && data.venueId) {
-            fetchData(BOOKINGS_URL, data, 'POST')
+            fetchData(BOOKINGS_URL + '/', data, 'POST')
             navigate(`/profile/${user}`)
         } else {
             setInputError('*Please select dates and guests')

@@ -22,6 +22,7 @@ export const EditPost = styled.div`
     padding: 0.5rem;
     text-align: right;
     border-radius: 0.5rem;
+    z-index: 2;
 
     * {
         margin: 0.4rem;

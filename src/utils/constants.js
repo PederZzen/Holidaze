@@ -13,7 +13,7 @@ export const VENUES_URL = BASE_URL + '/venues/'
 export const REGISTER_URL = BASE_URL + '/auth/register'
 export const LOGIN_URL = BASE_URL + '/auth/login'
 export const PROFILE_URL = BASE_URL + '/profiles/'
-export const BOOKINGS_URL = BASE_URL + '/bookings/'
+export const BOOKINGS_URL = BASE_URL + '/bookings'
 
 export const OWNER_FLAG = '?_owner=true'
 export const BOOKINGS_FLAG = '_bookings=true'

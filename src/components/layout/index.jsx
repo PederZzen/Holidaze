@@ -1,13 +1,20 @@
-import { useLocation } from "react-router-dom"
-import Header from "./header"
+import { useLocation } from 'react-router-dom'
+import Header from './header'
+import Footer from './footer'
 
-const Layout = ({children}) => {
+const Layout = ({ children }) => {
     const location = useLocation()
 
     return (
         <>
-            {location.pathname === "/register" || location.pathname === "/login" ? "" : <Header />}    
+            {location.pathname === '/register' ||
+            location.pathname === '/login' ? (
+                ''
+            ) : (
+                <Header />
+            )}
             <main>{children}</main>
+            {/* <Footer /> */}
         </>
     )
 }
