@@ -1,28 +1,28 @@
 import { useEffect } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 import Loader from '../../components/loader'
-import useFetchAuth from '../../hooks/useFetchAuth'
 import { BOOKINGS_FLAG, PROFILE_URL, VENUE_FLAG } from '../../utils/constants'
 import Header from './header'
 import Main from './main'
 import { Wrapper } from './style'
+import usePostPut from '../../hooks/usePostPut'
 
 const Profile = () => {
     const { user } = useParams()
     const location = useLocation()
 
-    const [getData, response, error] = useFetchAuth()
+    const [fetchData, response] = usePostPut()
 
     useEffect(() => {
-        getData(`${PROFILE_URL}${user}?${VENUE_FLAG}&${BOOKINGS_FLAG}`)
+        fetchData(
+            `${PROFILE_URL}${user}?${VENUE_FLAG}&${BOOKINGS_FLAG}`,
+            null,
+            'GET'
+        )
     }, [location])
 
     if (!response) {
         return <Loader />
-    }
-
-    if (error) {
-        return <p>An error has occured..</p>
     }
 
     return (

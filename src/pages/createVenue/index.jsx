@@ -55,6 +55,8 @@ const CreateVenue = () => {
         <Wrapper>
             <h1>Rent out your home</h1>
             <StyledForm onSubmit={handleSubmit(onSubmit)}>
+                {' '}
+                {/* onFinish?? */}
                 <div>
                     <input
                         type="text"
@@ -65,7 +67,6 @@ const CreateVenue = () => {
                     <label htmlFor="name">*Name of venue</label>
                     <span>{errors.name?.message}&nbsp;</span>
                 </div>
-
                 <div>
                     <textarea
                         placeholder=" "
@@ -75,7 +76,6 @@ const CreateVenue = () => {
                     <label htmlFor="desc">*Description</label>
                     <span>{errors.description?.message}&nbsp;</span>
                 </div>
-
                 <div>
                     <input
                         type="number"
@@ -87,7 +87,6 @@ const CreateVenue = () => {
                     <label htmlFor="price">*Price</label>
                     <span>{errors.price?.message}&nbsp;</span>
                 </div>
-
                 <div>
                     <input
                         type="number"
@@ -99,7 +98,6 @@ const CreateVenue = () => {
                     <label htmlFor="maxGuests">*Max guests</label>
                     <span>{errors.maxGuests?.message}&nbsp;</span>
                 </div>
-
                 <div>
                     {inputFields.map((field, idx) => (
                         <div key={idx}>
@@ -120,7 +118,6 @@ const CreateVenue = () => {
                         </div>
                     ))}
                 </div>
-
                 <section>
                     <h2>Amenities</h2>
                     <div>
@@ -156,7 +153,6 @@ const CreateVenue = () => {
                         <label htmlFor="pets">Pet friendly</label>
                     </div>
                 </section>
-
                 <h2>Location</h2>
                 <div>
                     <input
@@ -208,7 +204,6 @@ const CreateVenue = () => {
                     <label htmlFor="continent">Continent</label>
                     <span>{errors.continent?.message}&nbsp;</span>
                 </div>
-
                 <Button content="Create venue" />
             </StyledForm>
         </Wrapper>
