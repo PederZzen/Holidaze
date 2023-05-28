@@ -6,6 +6,7 @@ import Header from './header'
 import Main from './main'
 import { Wrapper } from './style'
 import useFetchAuth from '../../hooks/useFetchAuth'
+import Meta from '../../utils/meta'
 
 const Profile = () => {
     const { user } = useParams()
@@ -26,10 +27,16 @@ const Profile = () => {
     }
 
     return (
-        <Wrapper>
-            <Header profile={response} />
-            <Main profile={response} />
-        </Wrapper>
+        <>
+            <Meta
+                title={response.name}
+                description="Craft your unique profile on Holidaze and enhance your home sharing or travel experience. "
+            />
+            <Wrapper>
+                <Header profile={response} />
+                <Main profile={response} />
+            </Wrapper>
+        </>
     )
 }
 

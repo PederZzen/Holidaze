@@ -6,6 +6,7 @@ import { Wrapper } from '../../styles/authStyle'
 import { REGISTER_URL } from '../../utils/constants'
 import { schema } from './schema'
 import { StyledForm } from '../../styles/formStyle'
+import Meta from '../../utils/meta'
 
 const Register = () => {
     const navigate = useNavigate()
@@ -45,41 +46,51 @@ const Register = () => {
     }
 
     return (
-        <Wrapper>
-            <img src="logo.svg" alt="Holidaze logo"></img>
-            <h1>Your home away from home!</h1>
-            <p>Please enter your details</p>
-            <StyledForm onSubmit={handleSubmit(onSubmit)}>
-                <input {...register('name')} type="text" placeholder="* Name" />
-                <span>{errors.name?.message}&nbsp;</span>
+        <>
+            <Meta
+                title="Register"
+                description="Welcome to Holidaze's secure login page. Access your personalized account and embark on a journey of home sharing and memorable vacations."
+            />
+            <Wrapper>
+                <img src="logo.svg" alt="Holidaze logo"></img>
+                <h1>Your home away from home!</h1>
+                <p>Please enter your details</p>
+                <StyledForm onSubmit={handleSubmit(onSubmit)}>
+                    <input
+                        {...register('name')}
+                        type="text"
+                        placeholder="* Name"
+                    />
+                    <span>{errors.name?.message}&nbsp;</span>
 
-                <input
-                    {...register('email')}
-                    type="email"
-                    placeholder="* Email"
-                />
-                <span>{errors.email?.message}&nbsp;</span>
+                    <input
+                        {...register('email')}
+                        type="email"
+                        placeholder="* Email"
+                    />
+                    <span>{errors.email?.message}&nbsp;</span>
 
-                <input
-                    {...register('password')}
-                    type="password"
-                    placeholder="* Password"
-                />
-                <span>{errors.password?.message}&nbsp;</span>
+                    <input
+                        {...register('password')}
+                        type="password"
+                        placeholder="* Password"
+                    />
+                    <span>{errors.password?.message}&nbsp;</span>
 
-                <input
-                    {...register('confirmPassword')}
-                    type="password"
-                    placeholder="* Confirm Password"
-                />
-                <span>{errors.confirmPassword?.message}&nbsp;</span>
+                    <input
+                        {...register('confirmPassword')}
+                        type="password"
+                        placeholder="* Confirm Password"
+                    />
+                    <span>{errors.confirmPassword?.message}&nbsp;</span>
 
-                <Button content="Register" />
-            </StyledForm>
-            <p>
-                Already a user? <Link to="/login">Login</Link> instead
-            </p>
-        </Wrapper>
+                    <Button content="Register" />
+                </StyledForm>
+                <p>
+                    Already a user? <Link to="/login">Login</Link> instead
+                </p>
+            </Wrapper>
+        </>
     )
 }
 

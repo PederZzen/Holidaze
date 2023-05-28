@@ -8,6 +8,7 @@ import { Wrapper } from '../../styles/authStyle'
 import { StyledForm } from '../../styles/formStyle'
 import { LOGIN_URL } from '../../utils/constants'
 import { schema } from './schema'
+import Meta from '../../utils/meta'
 
 const Login = () => {
     const navigate = useNavigate()
@@ -49,33 +50,40 @@ const Login = () => {
     }
 
     return (
-        <Wrapper>
-            <img src="logo.svg" alt="Holidaze logo"></img>
-            <h1>Your home away from home!</h1>
-            <p>Please enter your details</p>
-            <StyledForm onSubmit={handleSubmit(onSubmit)}>
-                <span style={{ textAlign: 'center', marginBottom: '1rem' }}>
-                    {error}&nbsp;
-                </span>
-                <input
-                    {...register('email')}
-                    type="email"
-                    placeholder="* Email"
-                />
-                <span>{errors.email?.message}&nbsp;</span>
+        <>
+            <Meta
+                title="Login"
+                description="Welcome to Holidaze's secure login page. Access your personalized account and embark on a journey of home sharing and memorable vacations."
+            />
+            <Wrapper>
+                <img src="logo.svg" alt="Holidaze logo"></img>
+                <h1>Your home away from home!</h1>
+                <p>Please enter your details</p>
+                <StyledForm onSubmit={handleSubmit(onSubmit)}>
+                    <span style={{ textAlign: 'center', marginBottom: '1rem' }}>
+                        {error}&nbsp;
+                    </span>
+                    <input
+                        {...register('email')}
+                        type="email"
+                        placeholder="* Email"
+                    />
+                    <span>{errors.email?.message}&nbsp;</span>
 
-                <input
-                    {...register('password')}
-                    type="password"
-                    placeholder="* Password"
-                />
-                <span>{errors.password?.message}&nbsp;</span>
-                <Button content="Login" />
-            </StyledForm>
-            <p>
-                New to Holidaze? <Link to="/register">Register</Link> instead
-            </p>
-        </Wrapper>
+                    <input
+                        {...register('password')}
+                        type="password"
+                        placeholder="* Password"
+                    />
+                    <span>{errors.password?.message}&nbsp;</span>
+                    <Button content="Login" />
+                </StyledForm>
+                <p>
+                    New to Holidaze? <Link to="/register">Register</Link>{' '}
+                    instead
+                </p>
+            </Wrapper>
+        </>
     )
 }
 

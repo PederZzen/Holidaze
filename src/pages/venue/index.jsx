@@ -4,6 +4,7 @@ import useFetch from '../../hooks/useFetch'
 import { BOOKINGS_FLAG, OWNER_FLAG, VENUES_URL } from '../../utils/constants'
 import Header from './header'
 import Main from './main'
+import Meta from '../../utils/meta'
 
 const Venue = () => {
     const { id } = useParams()
@@ -25,6 +26,7 @@ const Venue = () => {
 
     return (
         <>
+            <Meta title={data.name} description={data.description} />
             <Header venue={data} />
             <Main venue={data} />
         </>
