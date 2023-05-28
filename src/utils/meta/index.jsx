@@ -2,7 +2,6 @@ import React from 'react'
 import { Helmet } from 'react-helmet-async'
 
 const Meta = (props) => {
-    console.log(props)
     return (
         <Helmet>
             <title>Holidaze | {props.title}</title>

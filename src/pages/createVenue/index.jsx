@@ -13,7 +13,7 @@ import Meta from '../../utils/meta'
 
 const CreateVenue = () => {
     const [inputFields, setInputFields] = useState([''])
-    const [fetchData, response, error] = useFetchAuth()
+    const [fetchData, response] = useFetchAuth()
     const user = localStorage.getItem('name')
     const navigate = useNavigate()
 
@@ -25,28 +25,28 @@ const CreateVenue = () => {
         resolver: yupResolver(schema),
     })
 
-    const onSubmit = (data) => {
-        const formData = { ...data }
-        if (formData.media) {
-            formData.media = formData.media.filter(
-                (mediaItem) => mediaItem !== ''
-            )
-        } else {
-            formData.media = []
-        }
-        const manager = {
-            venueManager: true,
-        }
+    const onSubmit = async (data) => {
+        try {
+            const formData = { ...data }
+            if (formData.media) {
+                formData.media = formData.media.filter(
+                    (mediaItem) => mediaItem !== ''
+                )
+            } else {
+                formData.media = []
+            }
+            const manager = {
+                venueManager: true,
+            }
 
-        console.log(formData)
+            await fetchData(`${PROFILE_URL}${user}`, manager, 'PUT')
+            await fetchData(VENUES_URL, formData, 'POST')
 
-        fetchData(`${PROFILE_URL}${user}`, manager, 'PUT')
-
-        setTimeout(() => {
-            fetchData(VENUES_URL, formData, 'POST')
             navigate('/profile/' + user)
             window.location.reload()
-        }, 1000)
+        } catch (err) {
+            console.log(err)
+        }
     }
 
     const add = () => {

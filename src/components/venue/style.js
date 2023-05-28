@@ -19,10 +19,6 @@ export const Wrapper = styled.div`
         border-radius: 1rem;
         overflow: hidden;
     }
-
-    @media screen and (min-width: 1200px) {
-        /* margin: 2rem auto 4rem; */
-    }
 `
 
 export const Content = styled.div`

@@ -20,7 +20,7 @@ const Register = () => {
     })
 
     const onSubmit = (data) => {
-        delete data.retypePassword
+        delete data.confirmPassword
 
         const registerUser = async (url, userData) => {
             try {
@@ -32,13 +32,12 @@ const Register = () => {
                     body: JSON.stringify(userData),
                 }
                 const response = await fetch(url, postData)
-                const json = await response.json()
-                localStorage.setItem('token', json.accessToken)
-                localStorage.setItem('name', json.name)
+
+                if (response.ok === true) {
+                    navigate('/login')
+                }
             } catch (error) {
                 console.error(error)
-            } finally {
-                navigate('/login')
             }
         }
 

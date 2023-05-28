@@ -12,7 +12,7 @@ const ChangeAvatar = ({ name }) => {
     const userName = localStorage.getItem('name')
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [showSettings, setShowSettings] = useState(false)
-    const [fetchData, response] = useFetchAuth()
+    const [fetchData] = useFetchAuth()
 
     const {
         register,
@@ -37,7 +37,9 @@ const ChangeAvatar = ({ name }) => {
     const handleOk = (data) => {
         setIsModalOpen(false)
         fetchData(PROFILE_URL + userName + '/media', data, 'PUT')
-        window.location.reload()
+        setTimeout(() => {
+            window.location.reload()
+        }, 500)
     }
 
     const handleCancel = () => {
