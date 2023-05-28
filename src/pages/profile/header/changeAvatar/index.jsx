@@ -31,7 +31,9 @@ const ChangeAvatar = ({ name }) => {
             avatar: null,
         }
         fetchData(PROFILE_URL + userName + '/media', data, 'PUT')
-        window.location.reload()
+        setTimeout(() => {
+            window.location.reload()
+        }, 500)
     }
 
     const handleOk = (data) => {
