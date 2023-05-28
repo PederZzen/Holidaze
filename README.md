@@ -1,14 +1,14 @@
 <div align="center">
     <img src="./public/logo.svg">
-</div>
-
-</br>
-
-# Project Exam 2
-
-</br>
+    </br>
+    <h3>Project Exam 2</h3>
+    </br>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7aa6bb8d-3f27-402b-a005-41d87f419603/deploy-status)](https://app.netlify.com/sites/holidazenorway/deploys)
+
+</div>
+
+---
 
 </br>
 
