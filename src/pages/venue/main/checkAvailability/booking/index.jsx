@@ -107,7 +107,7 @@ const Booking = ({ venue }) => {
             <div className="drawer-footer">
                 <div>
                     <h3>Total</h3>
-                    <p>{venue.price * totalDays}</p>
+                    <p>{venue.price * totalDays} NOK</p>
                     <p>{`${totalDays} nights`}</p>
                 </div>
                 <div>

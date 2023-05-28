@@ -3,6 +3,7 @@ import { Image } from 'antd'
 import useWindowWidth from '../../../../hooks/useWindowWidth'
 import { useEffect } from 'react'
 import { Wrapper } from './style'
+import placeholder from './placeholder.jpg'
 
 const Media = ({ venue }) => {
     const [visible, setVisible] = useState(false)
@@ -17,7 +18,7 @@ const Media = ({ venue }) => {
         <Wrapper>
             <Image
                 preview={{ visible: false }}
-                src={venue.media[0]}
+                src={venue.media.length > 0 ? venue.media[0] : placeholder}
                 onClick={() => setVisible(true)}
             />
             <div style={{ display: 'none' }}>
