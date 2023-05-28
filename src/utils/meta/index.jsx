@@ -5,7 +5,7 @@ const Meta = (props) => {
     return (
         <Helmet>
             <title>Holidaze | {props.title}</title>
-            <meta name={props.description}></meta>
+            <meta name="description" content={props.description}></meta>
         </Helmet>
     )
 }
