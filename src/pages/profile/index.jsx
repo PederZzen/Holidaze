@@ -5,13 +5,13 @@ import { BOOKINGS_FLAG, PROFILE_URL, VENUE_FLAG } from '../../utils/constants'
 import Header from './header'
 import Main from './main'
 import { Wrapper } from './style'
-import usePostPut from '../../hooks/usePostPut'
+import useFetchAuth from '../../hooks/useFetchAuth'
 
 const Profile = () => {
     const { user } = useParams()
     const location = useLocation()
 
-    const [fetchData, response] = usePostPut()
+    const [fetchData, response] = useFetchAuth()
 
     useEffect(() => {
         fetchData(

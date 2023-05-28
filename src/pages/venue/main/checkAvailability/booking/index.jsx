@@ -4,7 +4,7 @@ import { Wrapper } from './style'
 import Button from '../../../../../components/button'
 import Calendar from 'react-calendar'
 import dayjs from 'dayjs'
-import usePostPut from '../../../../../hooks/usePostPut'
+import useFetchAuth from '../../../../../hooks/useFetchAuth'
 import { BOOKINGS_URL } from '../../../../../utils/constants'
 import { useNavigate } from 'react-router-dom'
 
@@ -13,7 +13,7 @@ const Booking = ({ venue }) => {
     const [bookedDates, setBookedDates] = useState([])
     const [selectedDates, setSelectedDates] = useState([])
     const [guests, setGuests] = useState(0)
-    const [fetchData, response, error] = usePostPut()
+    const [fetchData, response, error] = useFetchAuth()
     const [inputError, setInputError] = useState('')
     const navigate = useNavigate()
     const user = localStorage.getItem('name')

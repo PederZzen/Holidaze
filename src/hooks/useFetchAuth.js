@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const usePostPut = () => {
+const useFetchAuth = () => {
     const [response, setResponse] = useState(null)
     const [error, setError] = useState(null)
     const token = localStorage.getItem('token')
@@ -30,4 +30,4 @@ const usePostPut = () => {
     return [fetchData, response, error]
 }
 
-export default usePostPut
+export default useFetchAuth

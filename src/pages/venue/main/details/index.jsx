@@ -10,7 +10,7 @@ import {
     GuestsAndPrice,
     StyledModal,
 } from './style'
-import usePostPut from '../../../../hooks/usePostPut'
+import useFetchAuth from '../../../../hooks/useFetchAuth'
 import { StyledForm } from '../../../../styles/formStyle'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -21,7 +21,7 @@ const Details = ({ venue }) => {
     const [settings, showSettings] = useState(false)
     const user = localStorage.getItem('name')
     const [isModalOpen, setIsModalOpen] = useState(false)
-    const [fetchData, response, error] = usePostPut()
+    const [fetchData, response, error] = useFetchAuth()
     const navigate = useNavigate()
     const [inputFields, setInputFields] = useState(
         venue.media.map((img) => ({ value: img, visible: true }))
@@ -78,10 +78,12 @@ const Details = ({ venue }) => {
     }
 
     const removeInputField = (index) => {
-        const updatedFields = [...inputFields]
-        updatedFields[index].visible = false
-        updatedFields.splice(index, 1)
-        setInputFields(updatedFields)
+        if (index !== 0) {
+            const updatedFields = [...inputFields]
+            updatedFields[index].visible = false
+            updatedFields.splice(index, 1)
+            setInputFields(updatedFields)
+        }
     }
 
     const addInputField = () => {
@@ -185,14 +187,13 @@ const Details = ({ venue }) => {
                                             {errors.media?.[idx]?.message}&nbsp;
                                         </span>
                                     </div>
-
-                                    <button
+                                    <span
                                         onClick={() => {
                                             removeInputField(idx)
                                         }}
                                     >
                                         &#10005;
-                                    </button>
+                                    </span>
                                     {idx === inputFields.length - 1 && (
                                         <p onClick={addInputField}>
                                             + Add more images

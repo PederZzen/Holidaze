@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import usePostPut from '../../../../hooks/usePostPut'
+import useFetchAuth from '../../../../hooks/useFetchAuth'
 import { BOOKINGS_FLAG, BOOKINGS_URL } from '../../../../utils/constants'
 import { useParams } from 'react-router-dom'
 import { Wrapper } from './style'

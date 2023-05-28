@@ -12,7 +12,9 @@ export const schema = yup
             .number()
             .typeError('Please enter a number')
             .required('Please enter maximum number of guests'),
-        media: yup.array().of(yup.string()),
+        media: yup
+            .array()
+            .of(yup.string().required('Please add at least one image')),
         meta: yup.object().shape({
             wifi: yup.boolean(),
             parking: yup.boolean(),

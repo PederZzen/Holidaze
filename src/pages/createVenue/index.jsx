@@ -3,7 +3,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Button from '../../components/button'
-import usePostPut from '../../hooks/usePostPut'
+import useFetchAuth from '../../hooks/useFetchAuth'
 import { StyledForm } from '../../styles/formStyle'
 import { PROFILE_URL, VENUES_URL } from '../../utils/constants'
 import { schema } from './schema'
@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom'
 
 const CreateVenue = () => {
     const [inputFields, setInputFields] = useState([''])
-    const [fetchData, response, error] = usePostPut()
+    const [fetchData, response, error] = useFetchAuth()
     const user = localStorage.getItem('name')
     const navigate = useNavigate()
 
@@ -37,13 +37,14 @@ const CreateVenue = () => {
             venueManager: true,
         }
 
-        console.log(data)
+        console.log(formData)
 
         fetchData(`${PROFILE_URL}${user}`, manager, 'PUT')
 
         setTimeout(() => {
             fetchData(VENUES_URL, formData, 'POST')
             navigate('/profile/' + user)
+            window.location.reload()
         }, 1000)
     }
 
@@ -55,8 +56,6 @@ const CreateVenue = () => {
         <Wrapper>
             <h1>Rent out your home</h1>
             <StyledForm onSubmit={handleSubmit(onSubmit)}>
-                {' '}
-                {/* onFinish?? */}
                 <div>
                     <input
                         type="text"

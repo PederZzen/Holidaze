@@ -4,7 +4,6 @@ import { StyledTabs, Wrapper } from './style'
 import Venues from './venues'
 
 const Main = ({ profile }) => {
-    console.log(profile)
     const user = localStorage.getItem('name')
     return (
         <Wrapper>

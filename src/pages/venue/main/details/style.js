@@ -62,9 +62,10 @@ export const StyledModal = styled(Modal)`
     .mediaField {
         position: relative;
 
-        button {
+        span {
             position: absolute;
             background-color: #ff5454;
+            text-align: center;
             right: -2.5rem;
             top: 0.35rem;
             height: 2rem;

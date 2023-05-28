@@ -4,21 +4,26 @@ import Menu from './menu'
 import { Nav, Wrapper } from './style'
 import logo from './logo.svg'
 import menuIcon from './menuIcon.svg'
+import useWindowWidth from '../../../hooks/useWindowWidth'
 
 const Header = () => {
     const [showMenu, setShowMenu] = useState(false)
     const location = useLocation()
+    const { windowWidth } = useWindowWidth()
 
     const toggleMenu = () => {
-        setShowMenu(true)
-        if (showMenu) {
-            setShowMenu(false)
-        }
+        setShowMenu(!showMenu)
     }
 
     useEffect(() => {
         setShowMenu(false)
     }, [location])
+
+    useEffect(() => {
+        if (windowWidth > 750) {
+            setShowMenu(true)
+        }
+    }, [windowWidth, location])
 
     return (
         <Wrapper>
@@ -28,9 +33,11 @@ const Header = () => {
                         <img src={logo} alt="holidaze logo"></img>
                     </Link>
                 </div>
-                <div onClick={toggleMenu}>
-                    <img src={menuIcon} alt="menu icon" />
-                </div>
+                {windowWidth < 750 ? (
+                    <div onClick={toggleMenu}>
+                        <img src={menuIcon} alt="menu icon" />
+                    </div>
+                ) : null}
                 {showMenu ? <Menu /> : ''}
             </Nav>
         </Wrapper>

@@ -22,4 +22,26 @@ export const MenuStyled = styled.div`
         text-decoration: none;
         color: ${color.accent};
     }
+
+    @media screen and (min-width: 750px) {
+        flex-direction: row;
+        position: relative;
+        top: 0;
+        padding: 0;
+        background-color: transparent;
+        gap: 1.5rem;
+
+        * {
+            color: white;
+            transition: all 0.3s;
+
+            &:hover {
+                color: #c4c4c4;
+            }
+        }
+
+        *:last-child {
+            margin-top: 0;
+        }
+    }
 `

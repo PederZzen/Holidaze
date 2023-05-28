@@ -3,7 +3,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { Modal } from 'antd'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import usePostPut from '../../../../hooks/usePostPut'
+import useFetchAuth from '../../../../hooks/useFetchAuth'
 import { Icons, PROFILE_URL } from '../../../../utils/constants'
 import { schema } from './schema'
 import { Input, SettingsDropdown, Wrapper } from './style'
@@ -12,7 +12,7 @@ const ChangeAvatar = ({ name }) => {
     const userName = localStorage.getItem('name')
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [showSettings, setShowSettings] = useState(false)
-    const [fetchData, response] = usePostPut()
+    const [fetchData, response] = useFetchAuth()
 
     const {
         register,
