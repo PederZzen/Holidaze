@@ -11,19 +11,19 @@ const Menu = () => {
     if (!localStorage.getItem('token')) {
         return (
             <MenuStyled>
+                <Link to="/login">Create Venue</Link>
                 <Link to="/register">Register</Link>
                 <Link to="/login">Login</Link>
-                <Link to="/login">Create Venue</Link>
             </MenuStyled>
         )
     } else {
         return (
             <MenuStyled>
                 <Link to={`/profile/${user}`}>Profile</Link>
+                <Link to="/createvenue">Create Venue</Link>
                 <Link to="/" onClick={logOut}>
                     Log out
                 </Link>
-                <Link to="/createvenue">Create Venue</Link>
             </MenuStyled>
         )
     }

@@ -65,8 +65,8 @@ const Details = ({ venue }) => {
 
     const settingsDropdown = (
         <EditPost>
-            <p onClick={showModal}>Edit post</p>
-            <p onClick={deleteVenue}>Delete post</p>
+            <p onClick={showModal}>Edit venue</p>
+            <p onClick={deleteVenue}>Delete venue</p>
         </EditPost>
     )
 
