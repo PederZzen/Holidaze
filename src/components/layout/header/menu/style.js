@@ -34,6 +34,7 @@ export const MenuStyled = styled.div`
         * {
             color: white;
             transition: all 0.3s;
+            font-weight: 500;
 
             &:hover {
                 color: #c4c4c4;
