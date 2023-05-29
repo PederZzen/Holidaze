@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import Hero from './hero'
 import Loader from '../../components/loader'
-import { SORT_DESC, VENUES_URL } from '../../utils/constants'
+import { OWNER_FLAG, SORT_DESC, VENUES_URL } from '../../utils/constants'
 import useFetch from '../../hooks/useFetch'
 import Venues from './venues'
 import Meta from '../../utils/meta'
 
 const Home = () => {
-    const { data, isLoading, isError } = useFetch(VENUES_URL + SORT_DESC)
+    const { data, isLoading, isError } = useFetch(
+        VENUES_URL + '?' + OWNER_FLAG + '&' + SORT_DESC
+    )
     const [venues, setVenues] = useState(data)
 
     useEffect(() => {

@@ -1,5 +1,6 @@
 import { Drawer } from 'antd'
 import styled from 'styled-components'
+import { color } from '../../../../utils/constants'
 
 export const Wrapper = styled.div`
     margin: 4rem 0;
@@ -31,5 +32,11 @@ export const Wrapper = styled.div`
 
 export const BookingDrawer = styled(Drawer)`
     border-radius: 2rem 2rem 0 0;
-    background-color: red;
+
+    .ant-drawer-body {
+        background-color: ${color.light};
+
+        display: flex;
+        justify-content: center;
+    }
 `

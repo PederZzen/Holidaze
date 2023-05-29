@@ -17,7 +17,7 @@ const Main = ({ venue }) => {
             <Description desc={venue.description} />
             <Amenities meta={venue.meta} />
             <Location location={venue.location} />
-            <Owner owner={venue.owner} />
+            {user === venue.owner.name ? null : <Owner owner={venue.owner} />}
             {user === venue.owner.name ? (
                 <MyVenueBookings bookings={venue.bookings} />
             ) : (

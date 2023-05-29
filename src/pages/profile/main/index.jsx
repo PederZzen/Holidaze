@@ -1,21 +1,19 @@
 import React from 'react'
 import Bookings from './bookings'
-import { StyledTabs, Wrapper } from './style'
+import { Wrapper } from './style'
 import Venues from './venues'
+import { Tabs } from 'antd'
 
 const Main = ({ profile }) => {
     const user = localStorage.getItem('name')
     return (
         <Wrapper>
-            <StyledTabs
+            <Tabs
                 defaultActiveKey="1"
-                centered
                 items={new Array(3).fill(null).map((_, i) => {
                     const id = String(i + 1)
                     const label = [
-                        user === profile.name
-                            ? 'My venues'
-                            : profile.name + 's Venues',
+                        user === profile.name ? 'My venues' : 'Venues',
                         user === profile.name ? 'My bookings' : '',
                     ]
                     const content = [

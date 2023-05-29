@@ -1,12 +1,14 @@
 import styled from 'styled-components'
-import { Tabs } from 'antd'
 import { color } from '../../../utils/constants'
 
 export const Wrapper = styled.div`
-    /* background-color: ${color.light}; */
     height: 100vh;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: auto;
+
+    .ant-tabs-nav {
+        padding-left: 0.5rem;
+    }
 
     .ant-tabs-tab {
         &:hover {
@@ -28,4 +30,3 @@ export const Wrapper = styled.div`
         color: ${color.accent};
     }
 `
-export const StyledTabs = styled(Tabs)``

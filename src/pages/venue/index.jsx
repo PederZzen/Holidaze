@@ -9,7 +9,7 @@ import Meta from '../../utils/meta'
 const Venue = () => {
     const { id } = useParams()
     const { data, isLoading, isError } = useFetch(
-        VENUES_URL + id + OWNER_FLAG + '&' + BOOKINGS_FLAG
+        VENUES_URL + '/' + id + '?' + OWNER_FLAG + '&' + BOOKINGS_FLAG
     )
 
     if (!data) {

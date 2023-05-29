@@ -5,10 +5,11 @@ import background from './home-background.png'
 export const Wrapper = styled.div`
     background: url(${background}) no-repeat right;
     background-size: cover;
-    height: 80vh;
+    height: 90vh;
     z-index: 1;
     position: relative;
     padding-top: 2rem;
+    overflow: hidden;
 
     div {
         color: ${color.light};
