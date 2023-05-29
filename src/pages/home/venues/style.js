@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
 `
 
 export const Filter = styled.div`
-    margin: 0 0.5rem;
+    margin: 0 0.5rem 4rem;
     background-color: ${color.accent};
     color: white;
     padding: 1rem;
