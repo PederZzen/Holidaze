@@ -58,10 +58,10 @@ const Details = ({ venue }) => {
         setIsModalOpen(false)
     }
 
-    const deleteVenue = () => {
-        fetchData(`${VENUES_URL}/${venue.id}`, null, 'DELETE')
-        console.log(response)
+    const deleteVenue = async () => {
+        await fetchData(`${VENUES_URL}/${venue.id}`, null, 'DELETE')
         navigate(`/profile/${user}`)
+        window.location.reload()
     }
 
     const settingsDropdown = (
