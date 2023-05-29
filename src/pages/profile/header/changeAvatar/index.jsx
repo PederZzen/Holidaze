@@ -30,7 +30,8 @@ const ChangeAvatar = ({ name }) => {
         const data = {
             avatar: null,
         }
-        fetchData(PROFILE_URL + userName + '/media', data, 'PUT')
+        fetchData(`${PROFILE_URL}${userName}/media`, data, 'PUT')
+
         setTimeout(() => {
             window.location.reload()
         }, 500)
@@ -38,7 +39,7 @@ const ChangeAvatar = ({ name }) => {
 
     const handleOk = (data) => {
         setIsModalOpen(false)
-        fetchData(PROFILE_URL + userName + '/media', data, 'PUT')
+        fetchData(`${PROFILE_URL}${userName}/media`, data, 'PUT')
         setTimeout(() => {
             window.location.reload()
         }, 500)

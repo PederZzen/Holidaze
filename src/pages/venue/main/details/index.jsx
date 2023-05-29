@@ -33,7 +33,8 @@ const Details = ({ venue }) => {
                 ({ visible, ...rest }) => rest.value
             )
             data.media = updatedMedia
-            await fetchData(VENUES_URL + venue.id, data, 'PUT')
+            await fetchData(`${VENUES_URL}/${venue.id}`, data, 'PUT')
+
             window.location.reload()
             console.log(data)
         } catch (err) {
@@ -58,7 +59,7 @@ const Details = ({ venue }) => {
     }
 
     const deleteVenue = () => {
-        fetchData(VENUES_URL + venue.id, null, 'DELETE')
+        fetchData(`${VENUES_URL}/${venue.id}`, null, 'DELETE')
         console.log(response)
         navigate(`/profile/${user}`)
     }
