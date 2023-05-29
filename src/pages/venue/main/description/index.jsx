@@ -1,12 +1,7 @@
-import React from 'react'
 import { Wrapper } from './style'
 
 const Description = ({ desc }) => {
-  return (
-    <Wrapper>
-      {desc}
-    </Wrapper>
-  )
+    return <Wrapper>{desc}</Wrapper>
 }
 
 export default Description

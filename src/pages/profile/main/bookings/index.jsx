@@ -1,4 +1,3 @@
-import React from 'react'
 import Venue from '../../../../components/venue'
 import { Wrapper } from '../venues/style'
 import { Link } from 'react-router-dom'

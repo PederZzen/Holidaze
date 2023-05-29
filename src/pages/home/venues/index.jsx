@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Filter, Search, Wrapper } from './style'
+import { Filter, Wrapper } from './style'
 import Venue from '../../../components/venue'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Icons } from '../../../utils/constants'

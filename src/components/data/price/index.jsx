@@ -1,4 +1,3 @@
-import React from 'react'
 import { Span, Wrapper } from './style'
 
 const Price = ({ price }) => {

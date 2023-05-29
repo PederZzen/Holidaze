@@ -1,4 +1,3 @@
-import React from 'react'
 import Bookings from './bookings'
 import { Wrapper } from './style'
 import Venues from './venues'

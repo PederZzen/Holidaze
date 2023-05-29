@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import { color } from '../../../utils/constants'
 
 export const Wrapper = styled.div`
-    height: 100vh;
     max-width: 1000px;
     margin: auto;
 

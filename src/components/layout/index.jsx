@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
     const location = useLocation()
 
     return (
-        <>
+        <div style={{ position: 'relative' }}>
             {location.pathname === '/register' ||
             location.pathname === '/login' ? (
                 ''
@@ -14,8 +14,8 @@ const Layout = ({ children }) => {
                 <Header />
             )}
             <main>{children}</main>
-            {/* <Footer /> */}
-        </>
+            <Footer />
+        </div>
     )
 }
 

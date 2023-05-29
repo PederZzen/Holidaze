@@ -1,5 +1,4 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import React from 'react'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Button from '../../components/button'
@@ -13,7 +12,7 @@ import Meta from '../../utils/meta'
 
 const CreateVenue = () => {
     const [inputFields, setInputFields] = useState([''])
-    const [fetchData, response] = useFetchAuth()
+    const [fetchData] = useFetchAuth()
     const user = localStorage.getItem('name')
     const navigate = useNavigate()
 

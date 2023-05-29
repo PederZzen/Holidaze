@@ -1,17 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import useFetchAuth from '../../../../hooks/useFetchAuth'
-import { BOOKINGS_FLAG, BOOKINGS_URL } from '../../../../utils/constants'
-import { useParams } from 'react-router-dom'
 import { Wrapper } from './style'
 import dayjs from 'dayjs'
 
 const MyVenueBookings = ({ bookings }) => {
-    const [dateFrom, setDateFrom] = useState(
-        dayjs(bookings.dateFrom).format('D MMM YYYY')
-    )
-    const [dateTo, setDateTo] = useState(
-        dayjs(bookings.dateTo).format('D MMM YYYY')
-    )
+    const dateFrom = dayjs(bookings.dateFrom).format('D MMM YYYY')
+    const dateTo = dayjs(bookings.dateTo).format('D MMM YYYY')
 
     return (
         <Wrapper>

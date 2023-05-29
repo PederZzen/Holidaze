@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import { Wrapper } from './style'
 import Button from '../../components/button'
